@@ -1,0 +1,146 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+.card-box {
+  flex: 0 0 30%;
+  padding: 1rem;
+  max-width: none;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 80%;
+  height: 180px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+}
+.card:hover {
+  height: 300px;
+}
+
+.card-img-box{
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0);
+  left: 50%;
+  top: -66px;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.card:hover .card-img-box{
+  width: 150px;
+  height: 150px;
+}
+
+.card-img-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.card .content .details {
+  padding: 40px;
+  text-align: center;
+  width: 100%;
+  transition: 0.5s;
+  transform: translateY(120px);
+  margin-bottom: 5%;
+}
+
+.card:hover .content .details {
+  transform: translateY(0px);
+  margin-bottom: -5%;
+}
+
+@font-face {
+  font-family: "PixelCowboy Font";
+  src: url("/static/fonts/PixelCowboy-l7we.ttf") format("truetype");
+  /* font-display: swap; */
+}
+
+.card .content .details h2 {
+  font-family: 'PixelCowboy Font';
+  font-size: 1.8em;
+  font-weight: 600px;
+  line-height: 1.2em;
+}
+
+.card .content .details .description {
+  font-size: 1em;
+  font-weight: 500px;
+  opacity: 0.5;
+}
+
+.card .card-button {
+  margin-top: 15%;
+}
+
+.card .card-button .warp {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@font-face {
+  font-family: "MiniPixel7 Font";
+  src: url("/static/fonts/MiniPixel7-6LKv.ttf") format("truetype");
+  /* font-display: swap; */
+}
+
+.card .card-button .warp .button {
+  width: 140px;
+  height: 45px;
+  font-family: 'MiniPixel7 Font';
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: rgb(190, 190, 190);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.card .card-button .warp .button:hover {
+  background-color: #2ee5c3;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}

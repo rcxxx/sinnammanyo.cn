@@ -1,0 +1,90 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content {
+  padding-bottom: 4rem;
+  padding-top: 6rem;
+}
+
+@media (max-width: 767px){
+  .header-content {
+    padding-bottom: 2rem;
+  }
+}
+
+
+@font-face {
+  font-family: "3D Pixel Font";
+  src: url("/static/fonts/3DThirteenPixelFontsRegular-2dPv.ttf") format("truetype");
+  /* font-display: swap; */
+}
+
+@font-face {
+  font-family: "Baby Blocks Font";
+  src: url("/static/fonts/BabyBlocks-OGv8.ttf") format("truetype");
+  /* font-display: swap; */
+}
+
+
+.header-title {
+  flex: 0 0 56%;
+  font-size: 80px;
+  font-family: "3D Pixel Font";
+}
+.header-title em {
+  color: #f98012;
+  font-style: normal;
+}
+
+.header-describe {
+  flex: 0 0 56%;
+  font-size: 28px;
+  font-family: "Baby Blocks Font";
+}
+.header-describe em {
+  font-style: normal;
+  font-size: 20px;
+}
+
+@media (min-width: 1024px) {
+  .header-content-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 0 0 370px;
+    min-height: 100%;
+    margin: 60px;
+    position: relative;
+    max-width: 500px;
+  }
+
+  .copy {
+    padding: 2rem;
+  }
+}
