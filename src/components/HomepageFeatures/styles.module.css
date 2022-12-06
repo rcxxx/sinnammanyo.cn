@@ -39,7 +39,8 @@
   height: 120px;
   background-color: rgba(255, 255, 255, 0);
   left: 50%;
-  top: -66px;
+  /* top: -66px; */
+  top: -30%;
   transform: translateX(-50%);
   border-radius: 20px;
   overflow: hidden;
@@ -49,6 +50,7 @@
 .card:hover .card-img-box{
   width: 150px;
   height: 150px;
+  top: -50%;
 }
 
 .card-img-box img {
@@ -75,13 +77,12 @@
   text-align: center;
   width: 100%;
   transition: 0.5s;
-  transform: translateY(120px);
-  margin-bottom: 5%;
+  transform: translateY(50%);
+  margin-bottom: 10%;
 }
 
 .card:hover .content .details {
-  transform: translateY(0px);
-  margin-bottom: -5%;
+  transform: translateY(0);
 }
 
 @font-face {
