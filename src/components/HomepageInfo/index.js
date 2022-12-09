@@ -1,7 +1,6 @@
 import React from 'react';
-import clsx from 'clsx';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 const FeatureList = [
   {
@@ -11,10 +10,10 @@ const FeatureList = [
       </>
     ),
     img: 'img/icons/lzumi-06.png',
-    img_github : '',
-    img_bilibili: '', 
-    img_wechat: '', 
-    img_qq: ''
+    img_github : 'img/pixel/star.png',
+    img_bilibili: 'img/pixel/payment.png', 
+    img_wechat: 'img/pixel/users.png', 
+    img_qq: 'img/pixel/target.png',
   },
 ];
 
@@ -67,10 +66,22 @@ function Info({title, img, img_github, img_bilibili, img_wechat, img_qq}) {
             </div>
             <div className={styles['icons-back']}>
               <div className={styles['icon-r']}>
-                <a><img src={img_qq} /></a>
+                <a>
+                  <img src={img_qq} />
+                  <img 
+                    src={useBaseUrl("https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/qr-code/qq.jpg")}
+                    className={`dropdown__menu ${styles.dropdown__menu}`}
+                  />
+                </a>
               </div>
               <div className={styles['icon-b']}>
-                <a><img src={img_wechat} /></a>
+                <a>
+                  <img src={img_wechat} />
+                  <img 
+                    src={useBaseUrl("https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/qr-code/wechat.jpg")}
+                    className={`dropdown__menu ${styles.dropdown__menu}`}
+                  />
+                </a>
               </div>
             </div>
           </div>
