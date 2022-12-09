@@ -35,19 +35,18 @@
 }
 .card:hover .back::before{
     clip-path: circle(100% at center);
-    background: #aedfdb;
+    background: #c2c1c1;
 }
 
 .card .content{
+    width: 50%;
+    height: 80%;
     position: absolute;
-    left: 45%;
+    left: 40%;
     top: 10%;
-    transition: 0.5s;
-    pointer-events: none;
-    opacity: 1;
-    visibility: visible;
-    /* opacity: 0;
-    visibility: hidden; */
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
 }
 .card:hover .content{
     opacity: 1;
@@ -59,9 +58,115 @@
     src: url("/static/fonts/BabyBlocks-OGv8.ttf") format("truetype");
 }
 .card .content h2{
+    text-align: center;
     font-family: "Baby Blocks Font";
 }
 
+.card .content .social-icons {
+    position: absolute;
+    width: 72%;
+    height: 75%;
+    left: 12.1%;
+    top: 20%;
+    display: flex;
+    transform-origin: center;
+    transform: rotate(45deg);
+}
+.card .content .social-icons .icons-top,
+.card .content .social-icons .icons-back {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template: 1fr 1fr;
+}
+.card .content .social-icons .icons-top::before,
+.card .content .social-icons .icons-back::before {
+    content:'';
+    position:absolute;
+    width: 66%;
+    height: 82%;
+    top: 9%;
+    left: 17%;
+    border-radius: 999em ;
+    background-color:#e6e7e8;
+}
+.card .content .social-icons .icons-top::after,
+.card .content .social-icons .icons-back::after {
+    content:'';
+    position:absolute;
+    width: 66%;
+    height: 82%;
+    top: 9%;
+    left: 17%;
+    border-radius: 999em ;
+    box-shadow: 0 0 10px #404041 ;
+    pointer-events: none;
+}
+.card .content .social-icons .icons-top .icon-t,
+.card .content .social-icons .icons-top .icon-l,
+.card .content .social-icons .icons-back .icon-r,
+.card .content .social-icons .icons-back .icon-b {
+    position: relative;
+    margin: 25%;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #404041;
+    transform-origin: center;
+    transform: rotate(-45deg);
+}
+.card .content .social-icons .icons-top .icon-t {
+    background-color: #5252cb;
+}
+.card .content .social-icons .icons-top .icon-l {
+    background-color: #4dcb3a;
+}
+.card .content .social-icons .icons-back .icon-r {
+    background-color: #b32400;
+}
+.card .content .social-icons .icons-back .icon-b {
+    background-color: #fce00d;
+}
+
+.card .content .social-icons .icons-top .icon-t:hover,
+.card .content .social-icons .icons-top .icon-l:hover,
+.card .content .social-icons .icons-back .icon-r:hover,
+.card .content .social-icons .icons-back .icon-b:hover{
+    transform: rotate(-45deg) scale(0.95);
+    box-shadow: 0 0 10px #404041;
+}
+
+.card .content .social-icons .icons-top .icon-t a,
+.card .content .social-icons .icons-top .icon-l a,
+.card .content .social-icons .icons-back .icon-r a,
+.card .content .social-icons .icons-back .icon-b a{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10%;
+}
+
+.card .content .social-icons .icons-top .icon-t a img,
+.card .content .social-icons .icons-top .icon-l a img,
+.card .content .social-icons .icons-back .icon-r a img,
+.card .content .social-icons .icons-back .icon-b a img{
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.6s;
+}
+
+.card .content .social-icons .icons-top .icon-t:hover a img,
+.card .content .social-icons .icons-top .icon-l:hover a img,
+.card .content .social-icons .icons-back .icon-r:hover a img,
+.card .content .social-icons .icons-back .icon-b:hover a img{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ----------------------------------------------------- */
 .card .zoom{
     position: absolute;
     transform: scale(0.75);
