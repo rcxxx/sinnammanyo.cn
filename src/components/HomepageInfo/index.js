@@ -9,7 +9,7 @@ const FeatureList = [
       <>
       </>
     ),
-    img: 'img/icons/lzumi-06.png',
+    img: 'img/icons/rikka_ssss_pixel_art.png',
     img_github : 'img/pixel/star.png',
     img_bilibili: 'img/pixel/payment.png', 
     img_wechat: 'img/pixel/users.png', 
