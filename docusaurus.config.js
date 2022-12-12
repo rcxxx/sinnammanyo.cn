@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: "Rcxxx's Personal Site",
+  tagline: '',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -56,6 +56,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'light',
+      },
       navbar: {
         title: 'My Site',
         logo: {
@@ -67,15 +70,45 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: ' ',
+            className: 'heafer-user-icon',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            type: 'dropdown',
+            label: '📝Docs',
+            position: 'left',
+            items: [
+              {label: '💻 PC', to:'docs/category/devices'},
+              {label: '⌨️ programming', to:'docs/category/C-C_plus_plus'},
+              {label: '👀 CV', to:'docs/category/OpenCV'},
+              {label: '🎖️ robot', to:'docs/category/RC-RM'},
+              {label: '🔨 3D Modeling', to:'docs/category/Fusion 360'},
+            ],
+          },
+          {
+            to: 'docs/category/just-paly',
             position: 'right',
+            className: 'heafer-life-icon',
+            
+          },
+          {
+            to: 'docs/category/summary',
+            position: 'right',
+            className: 'heafer-studio-icon'
+          },
+          {
+            href: 'https://github.com/facebook/docusaurus',
+            position: 'right',
+            className: 'header-github-link',
           },
         ],
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
       },
       footer: {
         style: 'dark',
