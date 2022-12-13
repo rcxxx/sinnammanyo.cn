@@ -8,23 +8,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: "Rcxxx's Personal Site",
   tagline: '',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/icons/game.png',
-
+  url: 'https://sinnammanyo.cn',
+  baseUrl: '/',
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
-
+  organizationName: 'rcxxx', // Usually your GitHub org/user name.
+  projectName: 'rcxxx.github.io', // Usually your repo name.
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
 
   presets: [
@@ -34,23 +32,36 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [require('remark-math'), require('mdx-mermaid')],
+          rehypePlugins: [require('rehype-katex')],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
         },
         blog: {
           showReadingTime: true,
+          readingTime: ({content, frontMatter, defaultReadingTime}) =>
+            frontMatter.hide_reading_time
+              ? undefined
+              : defaultReadingTime({content}),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
+  ],
+  stylesheets: [
+    {
+      href: '/katex/katex.min.css',
+      type: 'text/css',
+      crossorigin: 'anonymous',
+    },
   ],
 
   themeConfig:
@@ -60,29 +71,26 @@ const config = {
         defaultMode: 'light',
       },
       navbar: {
-        title: 'My Site',
+        title: 'Home',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/icons/rikka_ssss_pixel_art.png',
         },
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: ' ',
-            className: 'heafer-user-icon',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
+            to: '/blog', 
+            label: 'Blog', 
+            position: 'left'},
           {
             type: 'dropdown',
+            to: '/docs',
             label: '📝Docs',
             position: 'left',
             items: [
               {label: '💻 PC', to:'docs/category/devices'},
               {label: '⌨️ programming', to:'docs/category/C-C_plus_plus'},
               {label: '👀 CV', to:'docs/category/OpenCV'},
-              {label: '🎖️ robot', to:'docs/category/RC-RM'},
+              {label: '🎖️ robot', to:'docs/category/ROS'},
               {label: '🔨 3D Modeling', to:'docs/category/Fusion 360'},
             ],
           },
@@ -98,7 +106,7 @@ const config = {
             className: 'heafer-studio-icon'
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/rcxxx/sinnammanyo.cn',
             position: 'right',
             className: 'header-github-link',
           },
@@ -114,46 +122,16 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+                label: 'My GitHub',
+                href: 'https://github.com/rcxxx',
+              },              
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 🌈RCXXX. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

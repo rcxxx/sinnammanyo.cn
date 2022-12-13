@@ -11,7 +11,7 @@ const FeatureList = [
         不用心的学习笔记
       </>
     ),
-    img: 'img/icons/lzumi-06.png',
+    img: 'img/icons/head/lzumi-06.png',
     link: 'docs/',
   },
 ];

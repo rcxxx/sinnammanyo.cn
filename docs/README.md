@@ -1,7 +1,8 @@
 ---
-id: intro
+id: README
 title: 🌈欢迎访问我的知识库
 sidebar_label: README
+slag: /
 ---
 
 ---
