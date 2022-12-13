@@ -13,6 +13,7 @@ const config = {
   favicon: 'img/icons/game.png',
   url: 'https://sinnammanyo.cn',
   baseUrl: '/',
+  trailingSlash: false,
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'rcxxx', // Usually your GitHub org/user name.
