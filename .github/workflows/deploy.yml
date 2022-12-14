@@ -39,4 +39,4 @@ jobs:
           git config --global user.email "chuangxinr@gmail.com"
           git config --global user.name "rcxxx"
           yarn install --frozen-lockfile
-          DEPLOYMENT_BRANCH=master yarn deploy
+          yarn deploy

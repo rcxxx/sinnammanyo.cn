@@ -5,19 +5,30 @@ hide_reading_time: true
 title: 从零搭建自己的个人网站
 tags: [Docusaurus, 搭建]
 ---
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+      borderRadius: '5px'
+    }}>
+    {children}
+  </span>
+);
 
-### 为什么要建一个个人博客
-
-
-### 本文基于 Docusaurus 2
+### 本文基于 <Highlight color="#25c2a0">Docusaurus 2</Highlight>
 - **[Docusaurus](https://docusaurus.io/)**
 - **[facebook/docusaurus](https://github.com/facebook/docusaurus)**
 
 详细踩坑，放心食用
 
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/cover.png)
+
 <!--truncate-->
 
-### 准备工作
+## 准备工作
 
 :::tip
 
@@ -25,7 +36,7 @@ tags: [Docusaurus, 搭建]
 
 :::
 
-### 配置 VSCode & GitBash
+### 配置 VSCode & GitBash (windows)
 安装一个文档编辑器，这里推荐使用 `VSCode`
 - **https://code.visualstudio.com/Download**
 
@@ -36,7 +47,8 @@ tags: [Docusaurus, 搭建]
 
 ### 安装 node.js & yarn
 
-`Docusaurus` 是基于 `node.js` 的，需要在电脑上先安装 `node.js`
+`Docusaurus` 是基于 `node.js` 的，需要安装 `node.js`
+
 - **https://nodejs.org/**
 
 使用包管理器 `yarn` 可以很方便的管理你个人网站，建议安装 `yarn`
@@ -44,5 +56,177 @@ tags: [Docusaurus, 搭建]
 
 完成这些之后，你就可以开始在本地部署 `Docusaurus` 的服务
 
-### 安装 `Docusaurus`
+## 安装 <Highlight color="#25c2a0">Docusaurus</Highlight>
 
+使用包管理器 `yarn` 可以初始化 `Docusaurus` 项目
+
+``` bash
+yarn create docusaurus
+```
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/yarn-create-docusaurus.png)
+
+创建成功后会有这样的输出
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/Created-SUCCESS.png)
+
+```
+cd sinnammanyo.cn
+yarn start
+```
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/yarn-start.png)
+
+执行后会在本地开启一个端口，使用浏览器访问 `http://localhost:3000/` 即可查看站点的渲染结果
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+<BrowserWindow minHeight={240} url="http://localhost:3000">
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/yarn-start-result.png)
+
+</BrowserWindow>
+
+
+## 配置 <Highlight color="#25c2a0">Docusaurus</Highlight>
+
+安装完成后新目录会有如下结构
+```
+sinnammanyo.cn/
+├── blog/
+│   └── ...
+├── docs/
+│   └── ...
+├── src/
+│   ├── css/
+│   │   └── ...
+│   └── pages/
+│       └── ...
+├── static/
+│   └── ...
+├── docusaurus.config.js
+├── package.json
+├── README.md
+├── sidebars.js
+└── yarn.lock
+```
+
+### 配置站点信息
+`docusaurus.config.js` 中配置了站点元数据
+
+``` js title="docusaurus.config.js"
+const config = {
+  // 基础配置
+  title: 'My Site',                             // 站点名称
+  tagline: 'Dinosaurs are cool',                // 站点描述
+  url: 'https://your-docusaurus-test-site.com', // 站点 url
+  baseUrl: '/',                                 // 站点的url后缀
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/favicon.ico',                   // 站点的 logo 浏览器标签前面那个
+
+  // 部署时所需配置
+  organizationName: 'facebook',                 // Github 用户名
+  projectName: 'docusaurus',                    // Github 仓库名
+  ...
+}
+```
+
+以及主题、插件、预设等配置，可以参考 `Docusaurus` 的官方文档
+- **https://docusaurus.io/zh-CN/docs/configuration**
+
+### 文档 & 博客
+`Docusaurus` 分为文档模式和博客模式，最基本的功能是将本地的 `markdown` 文件渲染为 `html` 文件
+
+- `blogs/` 文件夹为博客 `markdown` 文件的存放位置
+- `docs/` 文件夹为文档文件存放位置
+
+两者区别在于，文档模式有侧边栏支持，适合对文档进行层级分类整理，而博客更专注于单篇内容，有作者，阅读时长等元素，其余地方差别不大
+
+### 页面
+`src/pages/` 中的 `jsx/tsx/mdx` 文件都会被渲染成网站的页面
+
+- `src/pages/index.js` 就是网站的初始页面，通过编辑 `index.js` 可以对 Home 页面进行个性化的设置
+
+如果你喜欢我的主页，可以到 [**这篇文章**] 看我的详细配置过程
+
+## 部署 <Highlight color="#25c2a0">Docusaurus</Highlight>
+当你的站点在本地调试完成之后，你可以选择将站点部署到云端，就可以通过网络在线访问
+
+`Docusaurus` 支持的部署方式很多，可以参考
+- *https://docusaurus.io/zh-CN/docs/deployment*
+
+这里我选择将站点部署到 `GitHub Pages`
+
+### 部署到 GitHub Pages
+**[`GitHub Pages`](https://pages.github.com/)** 对所有的仓库都免费
+
+:::note 
+
+如果你没有 `GitHub` 账号，就需要注册一个，然后简单了解一下 `GitHub` ，例如仓库，分支等等知识
+
+- *[GitHub](https://github.com/)*
+- *[Git及GitHub教程](https://www.githubs.cn/post/git-tutorial)*
+
+:::
+
+对于每个 GitHub 用户来说，叫做 `{username}.github.io` 名称的仓库是特殊的，这个仓库的 `GitHub Pages` 的 url 为 **`https://{username}.github.io/`**
+
+这里的方案将使用两个 Github 仓库来执行部署，分别为存放 `Docusaurus` 项目配置、文档等文件的 **源码仓库** 以及存放渲染后的所有页面文件的 **部署仓库**
+
+以我的站点为例，分别为
+- 源码仓库 **[`rcxxx/sinnammanyo.cn`](https://github.com/rcxxx/sinnammanyo.cn)**
+- 部署仓库 **[`rcxxx/rcxxx.github.io`](https://github.com/rcxxx/rcxxx.github.io)**
+
+你可以先创建同样的两个仓库，并根据你的站点以及用户名来进行明明，例如 `{username}/my-website`、`{username}/{username}.github.io`，`{username}` 为你自己的用户名
+
+#### 修改 `docusaurus.config.js`
+``` js title="docusaurus.config.js -- eg."
+const config = {
+  //...
+  url: 'https://sinnammanyo.cn',    // 你的网站 URL
+  baseUrl: '/',                     // 解析后的地址 如果设置为 /website/ 
+                                    // 则 url 将解析为 https://sinnammanyo.cn/website/
+  projectName: 'rcxxx.github.io',   // username.github.io
+  organizationName: 'rcxxx',        // username
+  trailingSlash: false,
+  deploymentBranch: 'master',       // 部署的默认分支  如果部署到同一个仓库下则可不指定 
+                                    // 默认为 'gh-pages'
+  //...
+}
+```
+
+#### deploy
+编译静态文件
+```
+yarn build
+```
+
+部署到远程仓库
+``` bash
+GIT_USER=<GITHUB_USERNAME> yarn deploy
+# GIT_USER=rcxxx yarn deploy
+```
+
+如果一切正常，你就可以在 `https://{username}.github.io/` 看到你部署完成的站点了
+
+### 进阶部署
+利用 `GitHub Action` 可以实现自动化更新部署
+
+#### SSH KEY
+由于是跨仓库部署，需要使用 `SSH` 密钥来通过权限检查
+
+- 生成 `ssh key`
+``` bash
+ssh-keygen -t rsa -C "your_email@example.com"
+```
+
+执行后一路默认，将在用户根目录生成 `ssh key`，linux 将会生成在 `~/.ssh/`， windows 将生成在 `/c/Users/username/.ssh/`
+- `id_rsa` 为私钥
+- `id_rsa.pub` 为公钥
+
+在你的源仓库中创建 `.github/workflows/deploy.yml` 工作流文件
+
+
+## 参考链接
+- **[`Docusaurus` 中文文档](https://docusaurus.io/zh-CN/docs)**
