@@ -75,6 +75,7 @@ import TabItem from '@theme/TabItem';
   baseUrl: '/projectName/',
   organizationName: 'username', // Usually your GitHub org/user name.
   projectName: 'projectName', // Usually your repo name.
+  deploymentBranch: 'master',  
 ```
 
 名称               | 描述
@@ -83,6 +84,7 @@ import TabItem from '@theme/TabItem';
 `projectName`      | GitHub存储库的名称
 `url`              | GitHub页面的URL
 `baseUrl`          | 项目的基本URL，填 /projectName/
+`deploymentBranch` | 部署时的分支
 
 :::tip
 这里 **`projectName`** 的储存库一般为 username.github.io，如果你有自己的域名，可以去仓库的 **`settings`** 里设置 **`GitHub Pages`** 的自定义域名，记得在自己的域名控制台添加一条解析规则
@@ -94,111 +96,83 @@ GIT_USER=<GITHUB_USERNAME> yarn deploy
 ```
 等待运行完成就部署完成了，就可以通过你配置好的 **`url`** 访问你的页面了
 
-这里有一些可选参数
-
-名称                | 描述
---------------------|---------------------------------------------------------------------------
-`USE_SSH`           | 设置为true使用SSH而不是默认的HTTPS来连接到GitHub存储库。
-`DEPLOYMENT_BRANCH` | 网站将被部署到的分支，默认是`gh-pages`分支，存储库`github.io`以结尾的默认为`master`分支
-`CURRENT_BRANCH`    | 包含将部署的最新文档更改的分支。通常为`master`，但它可以是除`gh-pages`之外的任何分支。如果此变量未设置任何内容，则将使用当前分支。
-`GIT_PASS`          | `GIT_USER`的密码（或令牌）
-
----
-
 ### 利用 Git Action 实现自动部署
 **[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions)** 允许在存储库中自动化，自定义和执行软件开发工作流程
 
-假设我们的源文件储存在仓库的 **`master`** 分支中，而页面部署在 **`gh-pages`** 分支，可以参考如下操作
+假设我们的源文件储存在 **[`rcxxx/sinnammanyo.cn`](https://github.com/rcxxx/sinnammanyo.cn)** 仓库中，而页面部署在 **[`rcxxx/rcxxx.github.io`](https://github.com/rcxxx/rcxxx.github.io)** 中，可以参考以下配置流程
+
+
 1. 生成一个新的 [SSH key](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
--  **`ssh-keygen -t rsa -C "user@email.com"`**
-   - 输入后终端提示你选择 **`SSH key`** 的保存路径，默认为 **`~/.ssh/id_rsa`**，建议将 **`id_rsa`** 修改为其他名称，例如 **`~/.ssh/id_rsa_action`**，接下来两个提示回车默认即可
-   - 这里不用默认名称是为了不与默认的全局**SSH key**冲突，具体问题参考[👉这里](https://www.jianshu.com/p/f7f4142a1556)
+``` bash
+ssh-keygen -t rsa -C "your_email@example.com"
+```
 
-2. 将生成的 **`id_rsa_action.pub`** 添加到你仓库的 **`settings -> Deploy keys`**
-   - 记得勾选 `Allow write access` ，不然会出现公钥只读的错误
+执行后一路默认，将在用户根目录生成 `ssh key`，linux 将会生成在 `~/.ssh/`， windows 将生成在 `/c/Users/username/.ssh/`
 
-3. 将生成的 **`id_rsa_action`** 添加到你仓库的 **`settings -> Secrets`**
-   - 将 **`Name`** 设置为 **`GH_PAGES_DEPLOY`**
+- `id_rsa.pub` 为公钥
 
-4. 在你源文件的跟目录下创建 **`.github/workflows/`** 这个目录，在目录中创建一个 **`.yml`** 文件
-   - 这里创建为 **`doc-action.yml`**
+需要添加到源仓库中，`Setting -> Deploy keys -> Add Deploy key`
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/add-id_rsa-pub.png)
 
-5. 在文件中写入如下内容
-  ``` yml title="doc-action.yml"
-  name: doc-action
+- `id_rsa` 为私钥
 
-  on:
-    pull_request:
-      branches: [master]
-    push:
-      branches: [master]
+需要添加到部署仓库 `github.io` 中，`Setting -> Secrets -> Actions -> New repository secret`
 
-  jobs:
-    checks:
-      if: github.event_name != 'push'
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v2
-          with:
-            node-version: '14.x'
-        - name: Test Build
-          run: |
-            if [ -e yarn.lock ]; then
-            yarn install --frozen-lockfile
-            elif [ -e package-lock.json ]; then
-            npm ci
-            else
-            npm i
-            fi
-            npm run build
-    gh-release:
-      if: github.event_name != 'pull_request'
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v2
-          with:
-            node-version: '14.x'
-        - name: Add key to allow access to repository
-          env:
-            SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-          run: |
-            mkdir -p ~/.ssh
-            ssh-keyscan github.com >> ~/.ssh/known_hosts
-            echo "${{ secrets.GH_PAGES_DEPLOY }}" > ~/.ssh/id_rsa
-            chmod 600 ~/.ssh/id_rsa
-            cat <<EOT >> ~/.ssh/config
-            Host github.com
-            HostName github.com
-            IdentityFile ~/.ssh/id_rsa
-            EOT
-        - name: Release to GitHub Pages
-          env:
-            USE_SSH: true
-            GIT_USER: user
-          run: |
-            git config --global user.email "user@email.com"
-            git config --global user.name "user"
-            if [ -e yarn.lock ]; then
-            yarn install --frozen-lockfile
-            elif [ -e package-lock.json ]; then
-            npm ci
-            else
-            npm i
-            fi
-            npx docusaurus deploy
-  ```
-- 有几个地方要修改
-  - **`GIT_USER: user`** 中的**user**修改为你**GitHub**的用户名
-  - **`git config --global user.email "user@email.com"`** 修改为你**GitHub**的邮箱
-  - **`git config --global user.name "user"`** 中的**user**修改为你**GitHub**的用户名
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/add-id_rsa.png)
 
-设置完毕后，当**master** 分支有新的拉取请求，会自动确保 **Docusaurus** 构建成功
+注意这里 secret 的 Name 需要记住，可以直接取名为 `GH_PAGES_DEPLOY`，后续的自动化工作流中将会用到这个 Name
 
-每当有新的内容被推送到 **master** 分支，将会自动构建并且部署到 **`gh-pages`**
+- 在你的源仓库中创建 `.github/workflows/deploy.yml` 工作流文件
 
-等待 **Git Action** 执行完毕，就可以在网页上看到你的站点了
+```yml title=".github/workflows/deploy.yml"
+name: Deploy to GitHub Pages
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test-deploy:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test build website
+        run: yarn build
+  deploy:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - name: Deploy to GitHub Pages
+        env:
+          USE_SSH: true
+        run: |
+          git config --global user.email "actions@github.com"   # 修改为你的邮箱地址
+          git config --global user.name "gh-actions"            # 修改为你的用户名
+          yarn install --frozen-lockfile
+          yarn deploy
+```
+
+git config --global user.email "actions@github.com" 修改为你 GitHub 的邮箱
+git config --global user.name "gh-actions" 修改为你 GitHub 的用户名
+
+一切就绪之后，当你向源仓库中推送文档的变更时，`GitHub Action` 将自动识别工作流，并执行站点的部署
 
 ## 参考
 - **[Docusaurus 中文文档](https://www.docusaurus.cn/docs/deployment)**

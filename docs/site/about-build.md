@@ -16,19 +16,18 @@ sidebar_label: 搭建
 我所用系统是 **`Windows`** ，如果是 **`Linux`** 或是 **`Mac`** 用户，建议对比其他教程进行安装
 - 安装步骤可能有区别外，配置部分应该是一样的
 ### 安装所需环境
-#### nodejs >= 14
+#### nodejs
 - [nodejs下载](https://nodejs.org/en/download/)
-#### yarn >= 1.5 
+#### yarn
 - [yarn下载](https://classic.yarnpkg.com/en/)
 
 ### 创建站点
-安装Docusaurus的最简单方法是使用命令行工具，该工具会搭建Docusaurus网站骨架。在新的空存储库中或现有存储库中的任何位置运行此命令，将创建一个包含支架文件的新目录
-- **`npx @docusaurus/init@latest init [name] [template]`**
-- **`[name]`** 为你想要创建的目录 **`[template]`** 为你想要用的模板
+安装 Docusaurus 的最简单方法是使用命令行工具，该工具会搭建 Docusaurus 网站骨架。在新的空存储库中或现有存储库中的任何位置运行此命令，将创建一个包含支架文件的新目录
+- **`npx create-docusaurus@latest [name] classic`**
+- **`[name]`** 为你想要创建的目录
 
-例如
-- **`npx @docusaurus/init@latest init my-website classic`**
-- 这里 **`[template]`** 选择使用 **`classic`** 模板，也可以选择 **`facebook`**、**`bootstrap`** 等模板
+或者使用 yarn
+- **`yarn create docusaurus`**
 
 ### 运行站点
 要在编辑文件时预览更改，可以运行本地服务
@@ -61,58 +60,162 @@ import TabItem from '@theme/TabItem';
 之后会在浏览器中打开地址为 **`http://localhost:3000`** 的页面，正常的话则安装完成
 
 ### 配置站点信息
-#### 将站点配置为知识库
-由于我只是想搭建个人知识库，因为已经搭建好了[个人博客](https://sinnammanyo.cn/)，所以 **`docusaurus.config.js`** 中的 **`presets`** 被我设置成这样
-  ``` js title="docusaurus.config.js"
-  presets: [
-      [
-      '@docusaurus/preset-classic',
-      {
+<details>
+<summary>
+  docusaurus.config.js
+</summary>
 
-          docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: "https://github.com/rcxxx/docs/tree/master",
-          },
+```js
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-          theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-          },
-      },
-      ],
-  ],
-  ```
-- 删除了 **`blog`** 页面，只保留 **`Docs`**
-
-去掉顶部导航栏的 **`blog`** ,找到 **`navbar`**，注释或者删掉 **`{to: 'blog', label: 'Blog', position: 'left'},`**
-  ``` js title="docusaurus.config.js" {10}
-  navbar: {
-    title: "Rcxxx's Notes",
-    items: [
-      {
-        to: 'docs/',
-        activeBasePath: 'docs',
-        label: 'Docs',
-        position: 'left',
-      },
-      // {to: 'blog', label: 'Blog', position: 'left'},
-      {
-        href: 'https://github.com/rcxxx/my-learning-notes',
-        label: 'GitHub',
-        position: 'right',
-      },
-    ],
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: "Rcxxx's Personal Site",
+  tagline: '',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/icons/game.png',
+  url: 'https://sinnammanyo.cn',
+  baseUrl: '/',
+  trailingSlash: false,
+  organizationName: 'rcxxx', // Usually your GitHub org/user name.
+  projectName: 'rcxxx.github.io', // Usually your repo name.
+  deploymentBranch: 'master',
+  // metadata like html lang. For example, if your site is Chinese, you may want
+  // to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans'],
   },
-  ``` 
-#### 修改一些站点的标签
-- **`navbar`** 栏中也有一些属性需要设置
-  - **`title`** 页面左上角的标题 —— 可以设置logo，具体见[文档](https://v2.docusaurus.io/docs/theme-classic)
-  - **`href`** 右上角 **`GitHub`** 中的链接以及标签 —— **`items`** 中可以自己添加想要的标签
-- **`footer`** 中配置页脚
-- 更多个性化的配置可以根据文档进行配置
-- 简洁至上
 
-### [将站点部署到GitHub](https://sinnammanyo.cn/personal-site/docs/about-deploy)
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [require('remark-math'), require('mdx-mermaid')],
+          rehypePlugins: [require('rehype-katex')],
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
+        },
+        blog: {
+          showReadingTime: true,
+          readingTime: ({content, frontMatter, defaultReadingTime}) =>
+            frontMatter.hide_reading_time
+              ? undefined
+              : defaultReadingTime({content}),
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
+        },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
+    ],
+  ],
+  stylesheets: [
+    {
+      href: '/katex/katex.min.css',
+      type: 'text/css',
+      crossorigin: 'anonymous',
+    },
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      colorMode: {
+        defaultMode: 'light',
+      },
+      navbar: {
+        title: 'Home',
+        logo: {
+          alt: 'My Site Logo',
+          src: 'img/icons/rikka_ssss_pixel_art.png',
+        },
+        items: [
+          {
+            to: '/blog', 
+            label: 'Blog', 
+            position: 'left'},
+          {
+            type: 'dropdown',
+            to: '/docs',
+            label: '📝Docs',
+            position: 'left',
+            items: [
+              {label: '💻 PC', to:'docs/category/devices'},
+              {label: '⌨️ programming', to:'docs/category/C-C_plus_plus'},
+              {label: '👀 CV', to:'docs/category/OpenCV'},
+              {label: '🎖️ robot', to:'docs/category/ROS'},
+              {label: '🔨 3D Modeling', to:'docs/category/Fusion 360'},
+            ],
+          },
+          {
+            to: 'docs/category/just-paly',
+            position: 'right',
+            className: 'heafer-life-icon',
+            
+          },
+          {
+            to: 'docs/category/summary',
+            position: 'right',
+            className: 'heafer-studio-icon'
+          },
+          {
+            href: 'https://github.com/rcxxx/sinnammanyo.cn',
+            position: 'right',
+            className: 'header-github-link',
+          },
+        ],
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'My GitHub',
+                href: 'https://github.com/rcxxx',
+              },              
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} 🌈RCXXX. Built with Docusaurus.`,
+      },
+      prism: {
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+      },
+    }),
+};
+
+module.exports = config;
+
+```
+
+</details>
+
+### 改变 HomePage 风格
+
+
+### [将站点部署到GitHub](https://sinnammanyo.cn/docs/site/about-deploy)
 
 ## 参考
 - **[使用 Docusaurus 搭建个人博客](https://www.zxuqian.cn/deploy-a-docusaurus-site)**
+- **[`Docusaurus` 中文文档](https://docusaurus.io/zh-CN/docs)**
 

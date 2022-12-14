@@ -222,11 +222,81 @@ ssh-keygen -t rsa -C "your_email@example.com"
 ```
 
 执行后一路默认，将在用户根目录生成 `ssh key`，linux 将会生成在 `~/.ssh/`， windows 将生成在 `/c/Users/username/.ssh/`
-- `id_rsa` 为私钥
+
 - `id_rsa.pub` 为公钥
 
-在你的源仓库中创建 `.github/workflows/deploy.yml` 工作流文件
+需要添加到源仓库中，`Setting -> Deploy keys -> Add Deploy key`
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/add-id_rsa-pub.png)
 
+- `id_rsa` 为私钥
+
+需要添加到部署仓库 `github.io` 中，`Setting -> Secrets -> Actions -> New repository secret`
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/add-id_rsa.png)
+
+注意这里 secret 的 Name 需要记住，可以直接取名为 `GH_PAGES_DEPLOY`，后续的自动化工作流中将会用到这个 Name
+
+- 在你的源仓库中创建 `.github/workflows/deploy.yml` 工作流文件
+
+```yml title=".github/workflows/deploy.yml"
+name: Deploy to GitHub Pages
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test-deploy:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test build website
+        run: yarn build
+  deploy:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+      - uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
+      - name: Deploy to GitHub Pages
+        env:
+          USE_SSH: true
+        run: |
+          git config --global user.email "actions@github.com"   # 修改为你的邮箱地址
+          git config --global user.name "gh-actions"            # 修改为你的用户名
+          yarn install --frozen-lockfile
+          yarn deploy
+```
+
+一切就绪之后，当你向源仓库中推送文档的变更时，`GitHub Action` 将自动识别工作流，并执行站点的部署
+
+### 自定义域名
+前面的操作之后，你将得到的站点为 `https://username.github.io/`
+
+如果想要个性化的自定义域名，则需要到服务商购买一个，然后添加域名解析
+
+- 新建 `static/CNAME` 文件，在其中填入你自己的域名，并且在将部署仓库的页面映射到自己的域名
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/custom-domain.png)
+
+## <Highlight color="#FF7F00">✨搭建完成✨</Highlight>
+
+至此你的个人网站以已经全部搭建完毕，开始愉快的内容创作~~~
 
 ## 参考链接
 - **[`Docusaurus` 中文文档](https://docusaurus.io/zh-CN/docs)**
