@@ -67,6 +67,17 @@ const config = {
       crossorigin: 'anonymous',
     },
   ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'ReadingNote',
+        path: 'reading_note',
+        routeBasePath: 'ReadingNote',
+        sidebarPath: require.resolve('./sidebarsReadingNote.js'),
+      },
+    ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -96,6 +107,16 @@ const config = {
               {label: '👀 CV', to:'docs/category/OpenCV'},
               {label: '🎖️ robot', to:'docs/category/ROS'},
               {label: '🔨 3D Modeling', to:'docs/category/Fusion 360'},
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: '✒️Notes',
+            to: '/ReadingNote',
+            position: 'left',
+            items: [
+              {label: '📚 读书笔记', to:'ReadingNote/'},
+            //   {label: '✏️ 随笔', to:'ReadingNote/'},
             ],
           },
           {
