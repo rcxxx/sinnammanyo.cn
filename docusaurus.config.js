@@ -47,8 +47,10 @@ const config = {
             frontMatter.hide_reading_time
               ? undefined
               : defaultReadingTime({content}),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+
+          postsPerPage: 'ALL',
+          blogSidebarCount: 'ALL',
+          blogSidebarTitle: '🔖所有文章',
           editUrl:
             'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
         },
