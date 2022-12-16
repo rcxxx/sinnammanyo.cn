@@ -23,11 +23,6 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
-h1 {
-  font-size: 2.2rem;
-}
-
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
@@ -79,4 +74,41 @@ html[data-theme='dark'] .header-github-link:before {
 
 .pagination-nav__link {
   border: 2px solid var(--ifm-color-emphasis-300);
+}
+
+
+.markdown h1 {
+  font-size: 2.2rem;
+}
+
+.markdown h2 {
+  font-size: 1.8em;
+  border-bottom: 1px solid var(--ifm-color-primary);
+  margin-top: 1rem;
+}
+
+.markdown h2::before {
+  margin-right: 0.3em;
+  width: 0.15em;
+  display: inline-block;
+  background: var(--ifm-color-primary);
+  color: transparent;
+  content: '.';
+}
+
+.markdown h3 {
+  font-size: 1.5em;
+}
+
+.markdown h3::before {
+  margin-right: 0.5em;
+  width: 0.25em;
+  display: inline-block;
+  background: var(--ifm-color-primary);
+  color: transparent;
+  content: '.';
+}
+
+.title {
+  font-size: 2.2rem;
 }
