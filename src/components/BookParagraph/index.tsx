@@ -1,4 +1,4 @@
-import React, {Children, ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 import styles from "./styles.module.css"
 
 interface Props{
@@ -10,7 +10,7 @@ function BookParagraph({children, section}:Props): JSX.Element{
 return(
     <div className={styles.paragraph}>
         <div className={styles.paragraphTitle}>
-            <h2>{section}</h2>
+            <h3>{section}</h3>
         </div>
         <div className={styles.paragrapBody}>{children}</div>
     </div>

@@ -10,10 +10,10 @@
   padding: 0.5rem;
 }
 
-.paragraphTitle h2{
-  font-size: 1.6rem;
+.paragraphTitle h3{
   text-align: center;
-  border-bottom: 0px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .paragrapBody {
