@@ -34,7 +34,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          remarkPlugins: [require('remark-math'), require('mdx-mermaid')],
+          remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
           rehypePlugins: [require('rehype-katex')],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -47,7 +47,8 @@ const config = {
             frontMatter.hide_reading_time
               ? undefined
               : defaultReadingTime({content}),
-
+          remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
+          rehypePlugins: [require('rehype-katex')],
           postsPerPage: 'ALL',
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '🔖所有文章',
