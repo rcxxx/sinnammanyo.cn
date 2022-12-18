@@ -25,6 +25,7 @@ const sidebars = {
       items: [
         'site/about-build',
         'site/about-deploy',
+        'site/about-theme',
         'site/about-write',
       ],
     }

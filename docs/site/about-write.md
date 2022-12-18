@@ -1,7 +1,7 @@
 ---
 id: about-write
 title: 风格指北
-sidebar_label: 编辑
+sidebar_label: 编辑文档
 ---
 # Docusaurus 风格指北
 - 详见这篇[官网文档](https://v2.docusaurus.io/docs/markdown-features)—— 英文

@@ -3,9 +3,8 @@ id: about-deploy
 title: 将 Docusaurus 部署到 GitHub Pages
 sidebar_label: 部署
 ---
-## 官方文档 [Deployment](https://v2.docusaurus.io/docs/deployment)
-## 我的方案
-### 配置Git
+> 参考官方文档 
+- **[Deployment](https://v2.docusaurus.io/docs/deployment)**
 
 ### 生成静态文件
 
