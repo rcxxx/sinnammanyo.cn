@@ -93,6 +93,30 @@ const sidebarsStack = {
           },
       ],
     },
+    // front-end
+    {
+      type: 'category',
+      label: '前端',
+      link: {
+        type: 'generated-index',
+        slug: '/category/front-end',
+      },
+      items:[
+        {
+          type: 'category',
+          label: 'React',
+          items: [
+            {
+              type: 'category',
+              label: 'Demo',
+              items: [
+                'programming/front-end/React/demo/gameboy-component'
+              ],
+            },
+          ],
+        },
+      ],
+    },
     // Data Structures
     {
       type: 'category',
