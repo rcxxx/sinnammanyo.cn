@@ -33,7 +33,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+        path: 'docs/docs',
+          sidebarPath: require.resolve('./sidebars/sidebars.js'),
           remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
           rehypePlugins: [require('rehype-katex')],
           // Please change this to your repo.
@@ -72,10 +73,25 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'ReadingNote',
-        path: 'reading_note',
-        routeBasePath: 'ReadingNote',
-        sidebarPath: require.resolve('./sidebarsReadingNote.js'),
+        id: 'notes',
+        path: 'docs/notes',
+        routeBasePath: 'notes',
+        sidebarPath: require.resolve('./sidebars/sidebars_notes.js'),
+        editUrl:
+        'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
+      },
+    ],
+        [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'stack',
+        path: 'docs/stack',
+        routeBasePath: 'stack',
+        sidebarPath: require.resolve('./sidebars/sidebars_stack.js'),
+        remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
+        rehypePlugins: [require('rehype-katex')],
+        editUrl:
+        'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
       },
     ],
   ],
@@ -100,23 +116,23 @@ const config = {
           {
             type: 'dropdown',
             to: '/docs',
-            label: '📝Docs',
+            label: '📥 Stack',
             position: 'left',
             items: [
-              {label: '💻 PC', to:'docs/category/devices'},
-              {label: '⌨️ programming', to:'docs/category/C-C_plus_plus'},
-              {label: '👀 CV', to:'docs/category/OpenCV'},
-              {label: '🎖️ robot', to:'docs/category/ROS'},
-              {label: '🔨 3D Modeling', to:'docs/category/Fusion 360'},
+              {label: '🔌 Devices', to:'stack/category/devices'},
+              {label: '💽 System', to:'stack/category/system'},
+              {label: '⌨️ Programming', to:'stack/category/C-C_plus_plus'},
+              {label: '👀 CV & Robot', to:'stack/category/OpenCV'},
+              {label: '🧠 ML & DL', to:'stack/category/ml-dl'},
+              {label: '🔩 Handmade', to:'stack/category/Fusion 360'},
             ],
           },
           {
             type: 'dropdown',
-            label: '✒️Notes',
-            to: '/ReadingNote',
+            label: '✒️ Notes',
             position: 'left',
             items: [
-              {label: '📚 读书笔记', to:'ReadingNote/'},
+              {label: '📚 读书笔记', to:'notes/'},
             //   {label: '✏️ 随笔', to:'ReadingNote/'},
             ],
           },
@@ -127,7 +143,7 @@ const config = {
             
           },
           {
-            to: 'docs/category/summary',
+            to: 'docs/category/studio',
             position: 'right',
             className: 'heafer-studio-icon'
           },

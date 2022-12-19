@@ -1,7 +1,7 @@
 ---
 id: about-theme
 title: 个性化 Docusaurus 主题配置
-sidebar_label: 个性化主题
+sidebar_label: 主题配置
 ---
 
 ### 配置站点信息
@@ -11,6 +11,9 @@ sidebar_label: 个性化主题
 </summary>
 
 ```js
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -24,7 +27,8 @@ const config = {
   url: 'https://sinnammanyo.cn',
   baseUrl: '/',
   trailingSlash: false,
-
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
   organizationName: 'rcxxx', // Usually your GitHub org/user name.
   projectName: 'rcxxx.github.io', // Usually your repo name.
   deploymentBranch: 'master',
@@ -42,9 +46,12 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+        path: 'docs/docs',
+          sidebarPath: require.resolve('./sidebars/sidebars.js'),
           remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
           rehypePlugins: [require('rehype-katex')],
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
         },
@@ -79,10 +86,25 @@ const config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'ReadingNote',
-        path: 'reading_note',
-        routeBasePath: 'ReadingNote',
-        sidebarPath: require.resolve('./sidebarsReadingNote.js'),
+        id: 'notes',
+        path: 'docs/notes',
+        routeBasePath: 'notes',
+        sidebarPath: require.resolve('./sidebars/sidebars_notes.js'),
+        editUrl:
+        'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
+      },
+    ],
+        [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'stack',
+        path: 'docs/stack',
+        routeBasePath: 'stack',
+        sidebarPath: require.resolve('./sidebars/sidebars_stack.js'),
+        remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
+        rehypePlugins: [require('rehype-katex')],
+        editUrl:
+        'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
       },
     ],
   ],
@@ -107,23 +129,23 @@ const config = {
           {
             type: 'dropdown',
             to: '/docs',
-            label: '📝Docs',
+            label: '🛸 Stack',
             position: 'left',
             items: [
-              {label: '💻 PC', to:'docs/category/devices'},
-              {label: '⌨️ programming', to:'docs/category/C-C_plus_plus'},
-              {label: '👀 CV', to:'docs/category/OpenCV'},
-              {label: '🎖️ robot', to:'docs/category/ROS'},
-              {label: '🔨 3D Modeling', to:'docs/category/Fusion 360'},
+              {label: '🔌 Devices', to:'stack/category/devices'},
+              {label: '💽 System', to:'stack/category/devices'},
+              {label: '⌨️ Programming', to:'stack/category/C-C_plus_plus'},
+              {label: '👀 CV & Robot', to:'stack/category/OpenCV'},
+              {label: '🧠 ML & DL', to:'stack/category/ml-dl'},
+              {label: '🔩 Handmade', to:'stack/category/Fusion 360'},
             ],
           },
           {
             type: 'dropdown',
-            label: '✒️Notes',
-            to: '/ReadingNote',
+            label: '✒️ Notes',
             position: 'left',
             items: [
-              {label: '📚 读书笔记', to:'ReadingNote/'},
+              {label: '📚 读书笔记', to:'notes/'},
             //   {label: '✏️ 随笔', to:'ReadingNote/'},
             ],
           },
@@ -134,7 +156,7 @@ const config = {
             
           },
           {
-            to: 'docs/category/summary',
+            to: 'docs/category/studio',
             position: 'right',
             className: 'heafer-studio-icon'
           },
@@ -183,6 +205,49 @@ module.exports = config;
 - _[文档多实例](https://docusaurus.io/zh-CN/docs/docs-multi-instance)_
 - _[侧边栏](https://docusaurus.io/zh-CN/docs/sidebar)_
 - _[数学公式](https://docusaurus.io/zh-CN/docs/markdown-features/math-equations)_
+
+#### 文档归档
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/site/docs-struct.png)
+
+文档分为三个实例
+1. 技术栈文档
+2. 笔记文档
+3. 其他文档
+
+在 `docusaurus.config.js` 以插件形式配置，方便文档文件夹分类
+
+<details>
+<summary>
+  docusaurus.config.js
+</summary>
+
+``` js
+// ...
+plugins: [
+[
+    '@docusaurus/plugin-content-docs',
+    {
+        id: 'notes',
+        path: 'docs/notes',
+        routeBasePath: 'notes',
+        sidebarPath: require.resolve('./sidebars/sidebars_notes.js'),
+        },
+    ],
+    [
+        '@docusaurus/plugin-content-docs',
+        {
+        id: 'stack',
+        path: 'docs/stack',
+        routeBasePath: 'stack',
+        sidebarPath: require.resolve('./sidebars/sidebars_stack.js'),
+        },
+    ],
+],
+// ...
+```
+
+</details>
 
 ### 修改主页面
 

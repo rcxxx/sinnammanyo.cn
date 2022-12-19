@@ -1,5 +1,5 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const sidebarsReadingNote = {
+const sidebarsNotes = {
   'ReadingNote': [
     'README',
     {
@@ -32,4 +32,4 @@ const sidebarsReadingNote = {
   ],
 }
 
-module.exports = sidebarsReadingNote;
+module.exports = sidebarsNotes;
