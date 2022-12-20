@@ -303,7 +303,7 @@ html[data-theme='dark'] .card:hover .back::before {
     filter: brightness(90%);
 }
 
-.gameboy .buttons {
+.gameboy .lights {
     width:4.86%;
     height:3%;
     background-color:#e2674f;
@@ -313,7 +313,7 @@ html[data-theme='dark'] .card:hover .back::before {
     left:14.8%;
     transition: 0.2s;
 }
-.info-container .card:hover .buttons {
+.info-container .card:hover .lights {
     background-color:#e84929;
     box-shadow: 0px 0px 6px rgba(248, 102, 45, 0.928);
     filter: brightness(150%);

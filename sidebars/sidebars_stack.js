@@ -397,6 +397,14 @@ const sidebarsStack = {
       items: [
         'cv/ml-dl/pytorch/about-pytorch',
         'cv/ml-dl/pytorch/pytorch-install',
+        {
+          type: "category",
+          label: "model",
+          collapsed: true,
+          items: [
+            'cv/ml-dl/pytorch/pytorch-resnet',
+          ],
+        },
         // {
         //   type: "category",
         //   label: " ",
@@ -494,6 +502,16 @@ const sidebarsStack = {
             'devices/nvidia/jeston-nano/jetson-nano-install-opencv',
             'devices/nvidia/jeston-nano/jetson-nano-gpio',
             'devices/nvidia/jeston-nano/jetson-nano-megflow-megengine',
+          ],
+        },
+        {
+          type: "category",
+          label: "ESP32",
+          collapsed: true,
+          items: [
+            'devices/esp32/esp32-idf-Clion-env',
+            'devices/esp32/esp32-demo-blink',
+            'devices/esp32/esp32-CLion-flash-seria-port-permission',
           ],
         },
       ],

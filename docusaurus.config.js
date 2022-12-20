@@ -70,6 +70,7 @@ const config = {
     },
   ],
   plugins: [
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-content-docs',
       {
@@ -81,7 +82,7 @@ const config = {
         'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
       },
     ],
-        [
+    [
       '@docusaurus/plugin-content-docs',
       {
         id: 'stack',

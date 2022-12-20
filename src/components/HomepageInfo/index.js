@@ -27,7 +27,7 @@ function GameBoy({img}){
           <img src={img}></img>
         </div>
       </div>
-      <div class={styles['buttons']}></div>
+      <div class={styles['lights']}></div>
       <div class={styles['buttons-1']}></div>
       <div class={styles['buttons-2']}></div>
       <div class={styles['buttons-2-2']}></div>
