@@ -27,6 +27,7 @@ const sidebarsNotes = {
       collapsed: false,
       items: [
         'chinese/王小波/绿毛水怪',
+        'chinese/王小波/黄金时代',
       ],
     }
   ],
