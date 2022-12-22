@@ -58,6 +58,8 @@ sidebar_label: vscode
 },
 ```
 
+## 插件
+
 ## reference
 
 - **[VSCode自定义配色方案](https://www.cnblogs.com/garvenc/p/vscode_customize_color_theme.html)**
