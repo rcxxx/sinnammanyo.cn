@@ -8,6 +8,21 @@ sidebar_label: vscode
 可以参考这篇博客，讲了安装方法，介绍了一些插件
 - **[最终你一定会爱上VSCode](https://sinnammanyo.cn/VSCode-config/)**
 
+## 配置 vscode
+
+### 修改终端为 Git bash(win)
+``` json
+"terminal.integrated.profiles.windows": {
+    "PowerShell": null,
+    "Command Prompt": null,
+    "Git-Bash": {
+        "path": "D:\\Program Files\\Git\\bin\\bash.exe",
+        "args": []
+    }
+},
+"terminal.integrated.defaultProfile.windows": "Git-Bash",
+```
+
 ## 美化 vscode
 这里主要记录一下美化 vscode 的过程
 
@@ -25,37 +40,8 @@ sidebar_label: vscode
 
 这里贴出我自己的配置，可以根据自己喜欢的配色进行修改（持续更新配置中······）
 
-```
-// 自定义主题配色
-"editor.tokenColorCustomizations": {
-    "[Material Theme Palenight]": {
-        // 仅限于 Material Theme Palenight 主题
-        "functions": "#31a9ff",
-        "keywords": "#ff6b26",
-        "strings": "#42ffef",
-        "numbers": "#ff8080",
-        "types": "#81f522",
-        "variables": "#bdf8f8",
-        "textMateRules": [
-            {   // 运算符
-                "scope": "keyword.operator",
-                "settings": {
-                    "foreground": "#30e6ec"
-                }
-            },
-            {   // 函数参数
-                "name": "Number, Constant, Function Argument, Tag Attribute, Embedded",
-                "scope": [
-                    "variable.parameter.function.language.special",
-                    "variable.parameter"
-                ],
-                "settings": {
-                    "foreground": "#f1c531"
-                }
-            },
-        ]
-    }
-},
+``` json
+
 ```
 
 ## 插件
@@ -64,4 +50,3 @@ sidebar_label: vscode
 
 - **[VSCode自定义配色方案](https://www.cnblogs.com/garvenc/p/vscode_customize_color_theme.html)**
 - **[Material Theme](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme)**
-- **[最终你一定会爱上VSCode](https://sinnammanyo.cn/VSCode-config/)**
