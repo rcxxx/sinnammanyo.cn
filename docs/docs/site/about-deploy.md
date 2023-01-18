@@ -110,12 +110,12 @@ ssh-keygen -t rsa -C "your_email@example.com"
 
 - `id_rsa.pub` 为公钥
 
-需要添加到源仓库中，`Setting -> Deploy keys -> Add Deploy key`
+需要添加到部署仓库中，`Setting -> Deploy keys -> Add Deploy key`
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/add-id_rsa-pub.png)
 
 - `id_rsa` 为私钥
 
-需要添加到部署仓库 `github.io` 中，`Setting -> Secrets -> Actions -> New repository secret`
+需要添加到源仓库 `github.io` 中，`Setting -> Secrets -> Actions -> New repository secret`
 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/start-docusaurus/add-id_rsa.png)
 
