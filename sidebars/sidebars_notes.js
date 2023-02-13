@@ -29,7 +29,33 @@ const sidebarsNotes = {
         'chinese/王小波/绿毛水怪',
         'chinese/王小波/黄金时代',
       ],
-    }
+    },
+
+    {
+      type: "category",
+      link: {
+        type: 'generated-index',
+        slug: '/category/村上春树/',
+      },
+      label: "村上春树",
+      collapsed: false,
+      items: [
+        'others/村上春树/挪威的森林',
+      ],
+    },
+
+    {
+      type: "category",
+      link: {
+        type: 'generated-index',
+        slug: '/category/川端康成/',
+      },
+      label: "川端康成",
+      collapsed: false,
+      items: [
+        'others/川端康成/雪国',
+      ],
+    },
   ],
 }
 
