@@ -40,6 +40,7 @@ const sidebarsNotes = {
       label: "村上春树",
       collapsed: false,
       items: [
+        'others/村上春树/且听风吟',
         'others/村上春树/挪威的森林',
       ],
     },
