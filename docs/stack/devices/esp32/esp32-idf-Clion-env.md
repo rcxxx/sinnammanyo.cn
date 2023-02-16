@@ -57,7 +57,7 @@ export IDF_GITHUB_ASSETS="dl.espressif.com/github_assets"
 先从 ESP-IDF 的目录中复制一下 example
 
 ```
-cp -r ~/workspace/esp//esp-idf-v4.4/examples/get-started/hello_world .
+cp -r ~/workspace/esp/esp-idf-v4.4/examples/get-started/hello_world .
 ```
 
 然后在 `CLion` 中打开 `hellow_world` 项目
@@ -79,6 +79,7 @@ project(hello_world)
 cmake_minimum_required(VERSION 3.5)
 
 set(PYTHON "$HOME/.espressif/python_env/idf4.4_py3.8_env/bin/python")
+# $HOME 要修改为你自己的用户路径
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(hello_world)
 ```
