@@ -25,8 +25,8 @@ sudo apt-get install git wget flex bison gperf python3 python3-venv python3-setu
 **下载 ESP-IDF**
 
 ``` bash
-mkdir -p ~/workspace/esp
-cd ~/workspace/esp
+mkdir -p ~/esp
+cd ~/esp
 git clone --recursive https://github.com/espressif/esp-idf.git
 # clone 指定版本
 # git clone -b v4.4 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.4
@@ -37,7 +37,7 @@ git clone --recursive https://github.com/espressif/esp-idf.git
 **执行安装脚本**
 
 ``` bash
-cd ~/workspace/esp/esp-idf-v4.4
+cd ~/esp/esp-idf
 export IDF_GITHUB_ASSETS="dl.espressif.com/github_assets"
 ./install.sh esp32
 # 安装所有芯片的支持
@@ -47,8 +47,10 @@ export IDF_GITHUB_ASSETS="dl.espressif.com/github_assets"
 **添加环境变量**
 
 ```
-./export.sh
+. ./export.sh
 ```
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/export-sh.png)
 
 这样添加环境变量只会针对当前终端生效
 
@@ -57,7 +59,7 @@ export IDF_GITHUB_ASSETS="dl.espressif.com/github_assets"
 先从 ESP-IDF 的目录中复制一下 example
 
 ```
-cp -r ~/workspace/esp/esp-idf-v4.4/examples/get-started/hello_world .
+cp -r ~/esp/esp-idf/examples/get-started/hello_world .
 ```
 
 然后在 `CLion` 中打开 `hellow_world` 项目
@@ -67,26 +69,20 @@ cp -r ~/workspace/esp/esp-idf-v4.4/examples/get-started/hello_world .
 这个项目是使用 `CMake` 来构建的，可以看到根目录下的 `CMakeLists.txt` 内容如下
 
 ```cmake
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(hello_world)
 ```
-
-由于这里并不方便使用 `export.sh` 开启虚拟环境，可以直接设置 `python` 可执行文件的位置，内容修改如下
-
-```cmake
-cmake_minimum_required(VERSION 3.5)
-
-set(PYTHON "$HOME/.espressif/python_env/idf4.4_py3.8_env/bin/python")
-# $HOME 要修改为你自己的用户路径
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(hello_world)
-```
-- 根据自己 `IDF` 的安装情况，可能需要修改路径
 
 #### 添加 IDF_PATH 环境变量
 打开 `CLion` **文件 -> 设置 -> 构建、执行、部署**
+
+执行 `. ./export.sh` 之后将输出 `ESP_IDF` 的安装路径
+
+``` shell title="eg"
+Setting IDF_PATH to '/home/rcxxx/esp/esp-idf'
+```
 
 打开 `CMake` 设置添加环境变量
 
@@ -94,23 +90,24 @@ project(hello_world)
 
 将 `ESP_IDF` 安装的路径设置为添加为 `IDF_PATH` 环境变量
 
+切换到之前的终端，查看当前终端的环境变量
 
-#### 修改 gcc、g++路径
-
-这个时候如果 CMake 报错
-
-![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/cmake_error_gcc.png)
-
-进入 `ESP_IDF` 安装路径的 `tools/cmake/toolchain-esp32.cmake` 的目录下
-
-按照你所使用开发板的型号修改对应的 `toolchain-esp32.cmake`，将其中的 `xtensa-esp32-elf-gcc` 三条 `set()` 修改如下
-
-``` cmake
-set(CMAKE_C_COMPILER $ENV{HOME}/.espressif/tools/xtensa-esp32-elf/esp-2021r2-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc)
-set(CMAKE_CXX_COMPILER $ENV{HOME}/.espressif/tools/xtensa-esp32-elf/esp-2021r2-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++)
-set(CMAKE_ASM_COMPILER $ENV{HOME}/.espressif/tools/xtensa-esp32-elf/esp-2021r2-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc)
+``` shell
+echo $PATH
 ```
-- 路径根据自己的实际路径设置，位置应该都一样
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/echo-path.png)
+
+
+将所有跟 esp32 相关的变量复制，粘贴到 `CMake` 环境变量之前
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/echo-path-copy.png)
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/export-sh-copy.png)
+
+
+清除 `CMake` 缓存，重新加载配置
+
 
 如果配置无误，`CMake` 将会输出 
 
@@ -122,11 +119,36 @@ set(CMAKE_ASM_COMPILER $ENV{HOME}/.espressif/tools/xtensa-esp32-elf/esp-2021r2-8
 
 使用快捷键 `ctrl + F9` 即可编译项目
 
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/build-app-done.png)
+
 修改编译选项为 `flash` 直接烧录程序
+
+烧录前的准备工作可以参照
+- [CLion & esp32 执行烧录前执行脚本赋予串口权限](https://sinnammanyo.cn/stack/devices/esp32/esp32-CLion-flash-seria-port-permission)
+
+烧录时可能会遇到这样的错误，原因是板子的参数没有设置
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/chip-argument.png)
+
+在 `CMakeLists.txt` 文件中添加如下语句
+
+``` cmake
+cmake_minimum_required(VERSION 3.16)
+
+set(IDF_TARGET "esp32s3")
+
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+project(hello_world)
+```
+
+清楚缓存后重新编译项目
+
+烧录结果
 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/flash.png)
 
 ## 参考
 - **[CLion-Doc-ESP-IDF](https://www.jetbrains.com/help/clion/esp-idf.html)**
+- **[在 Windows 上用 CLion 开发 ESP32 | CLion教程 | 嵌入式开发 | IDE](https://www.bilibili.com/video/BV1LD4y1P78U/?spm_id_from=333.337.search-card.all.click&vd_source=4cca3a7520260c460d94cf70a3f0a5ba)**
 - **[espressif/esp-idf](https://github.com/espressif/esp-idf)**
 - **[乐鑫开源/esp-idf](https://gitee.com/EspressifSystems/esp-idf)**
