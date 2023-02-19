@@ -510,8 +510,17 @@ const sidebarsStack = {
           collapsed: true,
           items: [
             'devices/esp32/esp32-idf-Clion-env',
-            'devices/esp32/esp32-demo-blink',
             'devices/esp32/esp32-CLion-flash-seria-port-permission',
+
+            {
+              type: "category",
+              label: "Demo",
+              collapsed: true,
+              items: [
+                'devices/esp32/esp32-demo-blink',
+                'devices/esp32/esp32-demo-wifi',
+              ],
+            },
           ],
         },
       ],
