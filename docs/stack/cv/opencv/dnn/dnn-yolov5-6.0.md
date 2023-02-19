@@ -6,8 +6,8 @@ sidebar_label: DNN YOLO-v5-ONNX
 ## 使用 CV::DNN 模块读取 YOLO v5 ONNX 模型进行实时目标检测
 ### 运行环境
 name | version 
----------|----------
- System | **[Ubuntu 20.04](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes/)**
+---------|:----------:
+ System | **[Ubuntu 20.04](https://releases.ubuntu.com/20.04/)**
  CMake  | **[3.10](https://cmake.org/)** ≥
  OpenCV | **[4.5.0](https://github.com/opencv/opencv/releases/tag/4.5.0)**
  Python | **[3.8.0](https://www.python.org/downloads/release/python-380/)**

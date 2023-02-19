@@ -5,6 +5,13 @@ sidebar_label: esp32-idf & Clion
 ---
 
 ## 在 CLion 中配置 ESP_CMake 项目
+name | version 
+---------|----------
+ System | **[Ubuntu 20.04](https://releases.ubuntu.com/20.04/)**
+ CMake  | **[3.10](https://cmake.org/)** ≥
+ ESP-IDF | **[master--v5.1](https://github.com/espressif/esp-idf)**
+ ESP-IDF Programming GuideLogo | **[v5.1](https://docs.espressif.com/projects/esp-idf/en/release-v5.1/esp32/index.html)**
+ Device | ESP32-S3-WROOM-1
 
 ### 安装 ESP-IDF
 
@@ -15,8 +22,6 @@ sidebar_label: esp32-idf & Clion
 - 文档地址 **[`ESP-IDF 快速入门`](https://www.jetbrains.com/help/clion/esp-idf.html#prepare)**
 
 #### Linux
-
-**安装依赖** - 这里使用的系统版本是 **[`Ubuntu20.04`](https://releases.ubuntu.com/20.04/)**
 
 ``` bash
 sudo apt-get install git wget flex bison gperf python3 python3-venv python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
