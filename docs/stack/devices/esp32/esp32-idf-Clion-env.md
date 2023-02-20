@@ -152,8 +152,48 @@ project(hello_world)
 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/flash.png)
 
+## 更新
+**使用 monitor 监测功能时，默认会打开 `/dev/ttyUSB0` 端口（Ubuntu），有的设备接时的端口为 `/dev/ttyACM*` 会导致监测功能报错，解决方法**
+- *[Flashing and monitoring an ESP-32 chip in CLion](https://www.jetbrains.com/help/clion/esp-idf.html#flash-monitor)*
+
+1. 可以在 CMake 用户环境变量中添加 `ESPPORT`
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/esp-idf-clion/espport.png)
+
+2. 或者在 `CMakeLists.txt` 文件中设置环境变量
+
+``` cmake
+set(ENV{ESPPORT} "/dev/ttyACM0")
+```
+
+## 更新 1.1
+由于我懒得每次新建项目，都要点到设置里面，然后复制一大堆环境变量什么的，于是在 `ChatGPT` 的帮助下，使用 `CMake` 一次性解决了配置的问题，把模板放在下面
+
+``` cmake
+cmake_minimum_required(VERSION 3.16)
+
+# ESP-IDF PATH
+set(ENV{IDF_PATH} "$ENV{HOME}/esp/esp-idf")
+
+# Set Environment Variable
+execute_process(COMMAND bash "-c" ". $ENV{HOME}/esp/esp-idf/export.sh >/dev/null && echo $PATH "
+        OUTPUT_VARIABLE PATH_OUTPUT)
+set(ENV{PATH} "${PATH_OUTPUT}")
+
+# Set ESP-Port
+set(ENV{ESPPORT} "/dev/ttyACM0")
+# Set Device
+set(IDF_TARGET "esp32s3")
+
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+```
+
+一劳永逸，后面直接复制这个就行了
+
+
 ## 参考
 - **[CLion-Doc-ESP-IDF](https://www.jetbrains.com/help/clion/esp-idf.html)**
 - **[在 Windows 上用 CLion 开发 ESP32 | CLion教程 | 嵌入式开发 | IDE](https://www.bilibili.com/video/BV1LD4y1P78U/?spm_id_from=333.337.search-card.all.click&vd_source=4cca3a7520260c460d94cf70a3f0a5ba)**
 - **[espressif/esp-idf](https://github.com/espressif/esp-idf)**
 - **[乐鑫开源/esp-idf](https://gitee.com/EspressifSystems/esp-idf)**
+- **[ChatGPT](https://chat.openai.com/auth/login)**
