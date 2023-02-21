@@ -28,3 +28,65 @@ export const Highlight = ({children, color}) => (
 
 <!--truncate-->
 
+### 代理服务器
+······
+
+使用插件之前，需要有一个代理服务器
+
+
+### 客户端
+例如 **`V2rayN`**、**`Clash`** 之类的客户端
+- *[**Dreamacro/clash**](https://github.com/Dreamacro/clash)*
+- *[**2dust/v2rayN**](https://github.com/2dust/v2rayN)*
+
+这里以 **[`clash_for_windows_pkg`](https://github.com/Fndroid/clash_for_windows_pkg)** 为例，可以在仓库的 [**Tag**](https://github.com/Fndroid/clash_for_windows_pkg/tags) 发布页中下载
+
+- General 为主页面，包含最基本的设置 —— 端口号、是否允许局域网、设置系统代理、开机自启动等
+- proxies 为代理界面，用来切换节点，以及代理方式 —— 全局、规则、直连、脚本
+- Profiles 为配置文件界面，连接到服务器端必备的配置 —— 包含订阅内容
+- Logs 日志界面
+- Connections 链接状态界面
+- Setting 设置界面，可以设置软件的主题，以及各种选项
+- Feedback 反馈界面
+
+基于你的操作系统可以选择不同的客户端
+
+#### MacOS
+- *[**yichengchen/clashX**](https://github.com/yichengchen/clashX)*
+
+#### Win/Linux
+- *[**Fndroid/clash_for_windows_pkg**](https://github.com/Fndroid/clash_for_windows_pkg)*
+
+虽说名字叫 `clash_for_windows_pkg` 但其实全平台都可以使用，只需要下载对应的内容即可
+
+### <Highlight color="#25c2a0">SwitchyOmega</Highlight>
+
+诸如 `Chrome`、`Microsoft Edge`、`Firefox` 等主流浏览器，都可以在拓展应用商店找到这个插件
+
+安装好之后的 SwitchyOmega 默认有两个情景模式
+
+- **proxy 代理模式**
+
+根据客户端的配置，依次修改 `协议`、`服务器地址`、`端口`，应用选项完成设置
+
+- **auto switch 自动切换模式**
+
+有时候一些网站是不需要代理也可以直接访问的，而有的又需要用到代理，频繁的切换模式是一件比较繁琐的事
+
+通过规则列表，就可以实现对不同域名的自动切换模式，选择规则列表设置为 `AutoProxy` 填入规则列表，更新情景模式即可
+
+``` shell
+https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+```
+
+#### 使用
+
+前面已经将插件配置完成，使用的时候只需要点击插件的图标，切换自己需要使用的模式即可
+
+会存在一些网址没有被写在规则列表内，可以手动进行添加
+
+也可以点击图标设置
+
+### <Highlight color="#FF7F00">✨配置完成✨</Highlight>
+
+至此可以开始方便的网页浏览
