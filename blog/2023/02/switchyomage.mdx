@@ -42,11 +42,19 @@ export const Highlight = ({children, color}) => (
 这里以 **[`clash_for_windows_pkg`](https://github.com/Fndroid/clash_for_windows_pkg)** 为例，可以在仓库的 [**Tag**](https://github.com/Fndroid/clash_for_windows_pkg/tags) 发布页中下载
 
 - General 为主页面，包含最基本的设置 —— 端口号、是否允许局域网、设置系统代理、开机自启动等
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/switchyomega/clash_for_win.png)
+
 - proxies 为代理界面，用来切换节点，以及代理方式 —— 全局、规则、直连、脚本
-- Profiles 为配置文件界面，连接到服务器端必备的配置 —— 包含订阅内容
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/switchyomega/clash_for_win_proxies.png)
+
+- Profiles 为配置文件界面，连接到服务器端必备的配置 —— 包含订阅内容等
+
 - Logs 日志界面
+
 - Connections 链接状态界面
+
 - Setting 设置界面，可以设置软件的主题，以及各种选项
+
 - Feedback 反馈界面
 
 基于你的操作系统可以选择不同的客户端
@@ -63,11 +71,17 @@ export const Highlight = ({children, color}) => (
 
 诸如 `Chrome`、`Microsoft Edge`、`Firefox` 等主流浏览器，都可以在拓展应用商店找到这个插件
 
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/switchyomega/edge_addons.png)
+
 安装好之后的 SwitchyOmega 默认有两个情景模式
+
+
 
 - **proxy 代理模式**
 
 根据客户端的配置，依次修改 `协议`、`服务器地址`、`端口`，应用选项完成设置
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/switchyomega/switchyomega-proxy.png)
 
 - **auto switch 自动切换模式**
 
@@ -75,6 +89,9 @@ export const Highlight = ({children, color}) => (
 
 通过规则列表，就可以实现对不同域名的自动切换模式，选择规则列表设置为 `AutoProxy` 填入规则列表，更新情景模式即可
 
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/switchyomega/switchyomega-auto.png)
+
+**规则列表文件地址**
 ``` shell
 https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
 ```
