@@ -140,13 +140,15 @@ echo $PATH
 ``` cmake
 cmake_minimum_required(VERSION 3.16)
 
-set(IDF_TARGET "esp32s3")
+set(ENV{IDF_TARGET} "esp32s3")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(hello_world)
 ```
 
-清楚缓存后重新编译项目
+清除缓存后重新编译项目
+
+- 也可以在 CMake 用户环境变量中添加 `IDF_TARGET`，更推荐这个方案
 
 烧录结果
 
@@ -165,31 +167,6 @@ project(hello_world)
 ``` cmake
 set(ENV{ESPPORT} "/dev/ttyACM0")
 ```
-
-## 更新 1.1
-由于我懒得每次新建项目，都要点到设置里面，然后复制一大堆环境变量什么的，于是在 `ChatGPT` 的帮助下，使用 `CMake` 一次性解决了配置的问题，把模板放在下面
-
-``` cmake
-cmake_minimum_required(VERSION 3.16)
-
-# ESP-IDF PATH
-set(ENV{IDF_PATH} "$ENV{HOME}/esp/esp-idf")
-
-# Set Environment Variable
-execute_process(COMMAND bash "-c" ". $ENV{HOME}/esp/esp-idf/export.sh >/dev/null && echo $PATH "
-        OUTPUT_VARIABLE PATH_OUTPUT)
-set(ENV{PATH} "${PATH_OUTPUT}")
-
-# Set ESP-Port
-set(ENV{ESPPORT} "/dev/ttyACM0")
-# Set Device
-set(IDF_TARGET "esp32s3")
-
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-```
-
-一劳永逸，后面直接复制这个就行了
-
 
 ## 参考
 - **[CLion-Doc-ESP-IDF](https://www.jetbrains.com/help/clion/esp-idf.html)**
