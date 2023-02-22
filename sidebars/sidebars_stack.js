@@ -518,6 +518,7 @@ const sidebarsStack = {
               collapsed: true,
               items: [
                 'devices/esp32/esp32-demo-blink',
+                'devices/esp32/esp32-demo-freertos_task_list',
                 'devices/esp32/esp32-demo-wifi',
               ],
             },
