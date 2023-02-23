@@ -514,7 +514,7 @@ const sidebarsStack = {
 
             {
               type: "category",
-              label: "Demo",
+              label: "Get Start",
               collapsed: true,
               items: [
                 'devices/esp32/esp32-demo-blink',
