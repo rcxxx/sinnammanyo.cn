@@ -519,6 +519,7 @@ const sidebarsStack = {
               items: [
                 'devices/esp32/esp32-demo-blink',
                 'devices/esp32/esp32-demo-freertos_task_list',
+                'devices/esp32/esp32-demo-freertos-event_group',
                 'devices/esp32/esp32-demo-wifi',
               ],
             },

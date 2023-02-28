@@ -14,7 +14,7 @@ name | version
  ESP-IDF Programming GuideLogo | **[v5.1](https://docs.espressif.com/projects/esp-idf/en/release-v5.1/esp32/index.html)**
  Device | ESP32-S3-WROOM-1
 
- **创建空项目**
+**创建空项目**
 
 - 激活环境
 ``` shell
