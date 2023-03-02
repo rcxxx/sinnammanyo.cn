@@ -534,6 +534,7 @@ const sidebarsStack = {
               collapsed: true,
               items: [
                 'devices/esp32/wifi/esp32-demo-wifi',
+                'devices/esp32/wifi/esp32-demo-tcp-server',
               ],
             },
           ],
