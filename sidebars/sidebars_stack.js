@@ -509,18 +509,31 @@ const sidebarsStack = {
           label: "ESP32",
           collapsed: true,
           items: [
-            'devices/esp32/esp32-idf-Clion-env',
-            'devices/esp32/esp32-CLion-flash-seria-port-permission',
-
             {
               type: "category",
               label: "Get Start",
               collapsed: true,
               items: [
-                'devices/esp32/esp32-demo-blink',
-                'devices/esp32/esp32-demo-freertos_task_list',
-                'devices/esp32/esp32-demo-freertos-event_group',
-                'devices/esp32/esp32-demo-wifi',
+                'devices/esp32/get-start/esp32-idf-Clion-env',
+                'devices/esp32/get-start/esp32-CLion-flash-seria-port-permission',
+                'devices/esp32/get-start/esp32-demo-blink',
+              ],
+            },
+            {
+              type: "category",
+              label: "FreeRTOS",
+              collapsed: true,
+              items: [
+                'devices/esp32/freertos/esp32-demo-freertos_task_list',
+                'devices/esp32/freertos/esp32-demo-freertos-event_group',
+              ],
+            },
+            {
+              type: "category",
+              label: "Wi-Fi",
+              collapsed: true,
+              items: [
+                'devices/esp32/wifi/esp32-demo-wifi',
               ],
             },
           ],

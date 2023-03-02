@@ -84,48 +84,6 @@ project(FreeRTOS_Task_List)
 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/demo-freertos-task-list/result.png)
 
-## 补充
-
-CLion 配置项目完成之后的编译，烧录操作还算正常，但是监测功能在使用的时候出现结果为空的情况
-
-![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/demo-freertos-task-list/result-none.png)
-
-并且每次修改代码之后，都要依次选择编译、烧录、监测三个功能，相当繁琐，经过跟 `ChatGPT` 的交流之后，找到一个方法可以一次解决所有问题
-
-在 CLion 的运行/调试配置中，可以使用脚本文本方式来自定义编译、烧录和监控 ESP-IDF 项目
-
-1. 点击 CLion 工具栏，在下拉菜单中选择 `编辑配置（Edit Configurations）`。
-
-![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/demo-freertos-task-list/edit-cfg.png)
-
-2. 左上角的加号 `添加配置（Add New Configuration）`
-
-![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/demo-freertos-task-list/add-new.png)
-
-3. 选择添加 `Shell Script`
-   
-![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/demo-freertos-task-list/shell-script.png)
-
-4. 选择脚本文本
-
-![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/esp32/demo-freertos-task-list/script-text.png)
-
-5. 在 `脚本文本` 一栏中填入终端命令语句
-
-``` bash
-. ~/esp/esp-idf/export.sh && idf.py build && idf.py -p /dev/ttyACM0 -b 115200 flash && idf.py -p /dev/ttyACM0 -b 115200 monitor
-```
-- `. ~/esp/esp-idf/export.sh` 激活环境的脚本，脚本路径根据自己的安装位置修改
-- `idf.py build` 编译项目
-- `idf.py -p /dev/ttyACM0 -b 115200 flash` 烧录项目，端口以及波特率根据自己的需求修改
-- `idf.py -p /dev/ttyACM0 -b 115200 monitor` 监测项目，同上
-
-然后即可点击 run，直接执行三步操作
-
-### 结束监测
-
-**终端中的 `monitor` 监测使用快捷键 `CTRL + ]`退出监测**
-
 ## 参考
 - **[FreeRTOS 接口: vTaskList() - 可优化内存和 task 栈溢出定位](https://blog.csdn.net/espressif/article/details/104719907)**
 - **[ChatGPT](https://chat.openai.com/auth/login)**
