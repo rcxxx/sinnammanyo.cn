@@ -57,6 +57,32 @@ const sidebarsNotes = {
         'others/川端康成/雪国',
       ],
     },
+
+    {
+      type: "category",
+      link: {
+        type: 'generated-index',
+        slug: '/category/太宰治/',
+      },
+      label: "太宰治",
+      collapsed: false,
+      items: [
+        'others/太宰治/人间失格',
+      ],
+    },
+    
+    {
+      type: "category",
+      link: {
+        type: 'generated-index',
+        slug: '/category/夏目漱石/',
+      },
+      label: "夏目漱石",
+      collapsed: false,
+      items: [
+        'others/夏目漱石/我是猫',
+      ],
+    },
   ],
 }
 
