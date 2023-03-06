@@ -1,7 +1,7 @@
 ---
 id: esp32-demo-freertos_task_list
 title: ''
-sidebar_label: freertos_task_list
+sidebar_label: Task List
 ---
 
 ## ESP32 Demo FreeRTOS Task List

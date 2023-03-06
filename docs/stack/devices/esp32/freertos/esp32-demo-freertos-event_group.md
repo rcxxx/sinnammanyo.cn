@@ -1,7 +1,7 @@
 ---
 id: esp32-demo-freertos-event_group
 title: ''
-sidebar_label: freertos event_group
+sidebar_label: Event Group
 ---
 
 ## ESP32 Demo FreeRTOS Event Group

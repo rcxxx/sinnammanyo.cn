@@ -524,6 +524,7 @@ const sidebarsStack = {
               label: "FreeRTOS",
               collapsed: true,
               items: [
+                'devices/esp32/freertos/esp32-freertos-task',
                 'devices/esp32/freertos/esp32-demo-freertos_task_list',
                 'devices/esp32/freertos/esp32-demo-freertos-event_group',
               ],
@@ -534,6 +535,7 @@ const sidebarsStack = {
               collapsed: true,
               items: [
                 'devices/esp32/wifi/esp32-demo-wifi',
+                'devices/esp32/wifi/esp32-demo-wifi-scan',
                 'devices/esp32/wifi/esp32-demo-tcp-server',
               ],
             },

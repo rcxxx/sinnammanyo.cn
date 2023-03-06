@@ -39,31 +39,38 @@ conda install -c conda-forge pyserial
 
 - 开启串口
 
-```py
+``` py
 import serial
 
-_ser = serial.Serial(port="/dev/ttyACM0", baudrate=115200, timeout=0.01)
+ser = serial.Serial(port="/dev/ttyACM0", baudrate=115200, timeout=0.01)
 ```
 
 - 接收串口
 
-```py
-str_read = _ser.read(6).hex()
+``` py
+str_read = ser.read(6).hex()
 # 6 读取六个字节
 # .hex() 十六进制读取
 ```
 
 - 发送串口
 
-```py
+``` py
 str_write = 'write_str'
-_ser.write(str_write)
+ser.write(str_write)
+```
+
+- 按位发送
+  
+``` py
+data = []
+ser.write(bytes(data))
 ```
 
 - 关闭串口
 
-```py
-_ser.close()
+``` py
+ser.close()
 ```
 
 
