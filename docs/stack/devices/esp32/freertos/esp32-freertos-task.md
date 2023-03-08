@@ -46,7 +46,7 @@ void app_main(void)
     BaseType_t xReturned;
     TaskHandle_t xHandle = NULL;
 
-    xReturned = xTaskCreate(appTask, "appTask", 1024, NULL, 1, xHandle);
+    xReturned = xTaskCreate(appTask, "appTask", 1024 * 2, NULL, 1, xHandle);
 }
 ```
 
@@ -68,7 +68,7 @@ void app_main(void)
     BaseType_t xReturned;
     TaskHandle_t xHandle = NULL;
 
-    xReturned = xTaskCreate(appTask, "appTask", 1024, NULL, 1, xHandle);
+    xReturned = xTaskCreate(appTask, "appTask", 1024 * 2, NULL, 1, xHandle);
 
     // if (xReturned == pdPASS){
     //     vTaskDelete(xHandle);
@@ -89,7 +89,7 @@ void appTask( void * pvParameters )
 }
 
 void app_main(void){
-    xTaskCreate(appTask, "appTask", 1024, NULL, 1, NULL);
+    xTaskCreate(appTask, "appTask", 1024 * 2, NULL, 1, NULL);
 
 }
 ```
@@ -99,38 +99,41 @@ void app_main(void){
 - int 整型
 
 ``` c
-void appTask( void * pvParameters )
+void appTask_int(void *pvParameters)
 {
-    int num = *((int *)pvParameters);
-    ESP_LOGI("App Task", "num: %d", num);
+    int num = *((int*)pvParameters);
+    ESP_LOGI("App Task", "num: %d\n", num);
+    vTaskDelay(500 / portTICK_PERIOD_MS);
     vTaskDelete(NULL);
 }
 
 void app_main(void)
 {
     int num = 1;
-    xTaskCreate(appTask, "appTask", 1024, (void *)&num, 1, NULL);
+    xTaskCreate(appTask_int, "App Task int", 1024 * 2, (void *)&num, 1, NULL);
+
 }
 ```
 
-- [] 数组
+- array 数组
 
 ``` c
-void appTask( void * pvParameters )
+void appTask_array( void * pvParameters )
 {
-    int *p_nums = (int *)pvParameters;
-    for (int i = 0; i < sizeof(num); ++i){
-        ESP_LOGI("App Task", "num %d: %d", i, *(p_nums + i));
-        vTaskDelay(500 / portTICK_PERIOD_MS);
+    int *p_array = (int *)pvParameters;
+    ESP_LOGI("App Task", "array %d\n", *p_array);
+    for (int i = 0; i < sizeof(p_array); ++i){
+        ESP_LOGI("App Task", "num %d: %d\n", i+1, *(p_array + i));
     }
-    
+    vTaskDelay(500 / portTICK_PERIOD_MS);
     vTaskDelete(NULL);
 }
 
 void app_main(void)
 {
     int nums[] = {1, 2, 3, 4};
-    xTaskCreate(appTask, "appTask", 1024, (void *)nums, 1, NULL);
+    xTaskCreate(appTask_array, "App Task array", 1024 * 2, (void *)nums, 1, NULL);
+    vTaskDelay(2000 / portTICK_PERIOD_MS);
 }
 ```
 
@@ -140,13 +143,13 @@ void app_main(void)
 typedef struct Num_Struct {
     int num_1;
     int num_2;
-}Num_t
+}Num_t;
 
-void appTask( void * pvParameters )
+void appTask_struct( void * pvParameters )
 {
     Num_t *p_num_t = (Num_t *)pvParameters;
-    ESP_LOGI("App Task", "num 1: %d, num 2: %d", p_num_t->num_1, p_num_t->num_2);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    ESP_LOGI("App Task", "num 1: %d, num 2: %d\n", p_num_t->num_1, p_num_t->num_2);
+    vTaskDelay(500 / portTICK_PERIOD_MS);
     vTaskDelete(NULL);
 }
 
@@ -156,25 +159,32 @@ void app_main(void)
         .num_1 = 1,
         .num_2 = 2,
     };
-    xTaskCreate(appTask, "appTask", 1024, (void *)&num_t, 1, NULL);
+    xTaskCreate(appTask, "appTask", 1024 * 2, (void *)&num_t, 1, NULL);
 }
 ```
 
 - 字符串
 
 ``` c
-void appTask( void * pvParameters )
+void appTask_str( void * pvParameters )
 {
     char *p_text = (char *)pvParameters;
     ESP_LOGI("App Task", "message: %s\n", p_text);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);  
+    vTaskDelay(500 / portTICK_PERIOD_MS);
     vTaskDelete(NULL);
 }
 
 void app_main(void)
 {
-    const char *p_text = "Hello World!"
-    xTaskCreate(appTask, "appTask", 1024, (void *)p_text, 1, NULL);
+    const char *p_text = "Hello World!";
+    xTaskCreate(appTask_str, "App Task str", 1024 * 2, (void *)p_text, 1, NULL);
 }
 ```
+
+:::caution
+
+由于使用指针进行参数传递，能够传入各种需要的参数，但是需要保证在任务结束之前，传入的指针参数不能被修改
+
+:::
+
 
