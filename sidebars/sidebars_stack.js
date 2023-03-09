@@ -290,6 +290,7 @@ const sidebarsStack = {
           items: [
               'cv/opencv/dnn/opencv-dnn-yolov4',
               'cv/opencv/dnn/opencv-dnn-yolov5-6-0',
+              'cv/opencv/dnn/opencv-dnn-ultralytics',
           ],
         },
         {
