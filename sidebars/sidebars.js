@@ -115,6 +115,18 @@ const sidebars = {
             'project/studio/垃圾桶/foolish-trash-bin',
           ],
         },
+        {
+          type: "category",
+          label: "云逗猫",
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'project/studio/云逗猫/cloud-tease-cat-danmu-hunter',
+          },
+          items: [
+            'project/studio/云逗猫/cloud-tease-cat-danmu-hunter',
+          ],
+        },
       ],
     },
     // RC & RM
