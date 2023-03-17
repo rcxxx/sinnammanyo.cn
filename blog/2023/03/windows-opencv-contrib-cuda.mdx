@@ -1,0 +1,100 @@
+---
+authors: rcxxx
+hide_reading_time: true
+title: OpenCV 源码编译全总结
+tags: [OpenCV, OpenCV-Contrib, CUDA, CUDNN]
+---
+
+export const Highlight = ({children, color}) => (
+  <span
+    style={{
+      backgroundColor: color,
+      borderRadius: '2px',
+      color: '#fff',
+      padding: '0.2rem',
+      borderRadius: '5px'
+    }}>
+    {children}
+  </span>
+);
+
+`OpenCV` 是一个跨平台计算机视觉的开源库，实现了很多图像处理和计算机视觉方面的通用算法
+
+官网虽然提供了预编译好的文件，但是想要使用 `contrib` 拓展模块或者是 `CUDA` 的 GPU 支持，就需要从源码编译
+
+**[<Highlight color="#25c2a0">Windows篇</Highlight>](#windows)** ==== **[<Highlight color="#25c2a0">Linux篇</Highlight>](#linux)**
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/opencv-cover-eye.jpg)
+
+<!--truncate-->
+
+## Windows
+- 软件版本
+
+name | version 
+---------|----------
+ System | Windows 10 22H2
+ CMake-GUI  | **[v3.24.3](https://cmake.org/)**
+ OpenCV | **[v4.7.0](https://github.com/opencv/opencv/releases/tag/4.7.0)**
+ OpenCV-Contrib | **[v4.7.0](https://github.com/opencv/opencv_contrib/releases/tag/4.7.0)**
+ Visual Studio | **[2022](https://visualstudio.microsoft.com/zh-hans/vs/)**
+ (可选)CUDA | **[v12.0](https://developer.nvidia.com/cuda-12-0-0-download-archive)**
+ (可选)CUDNN | **[v8.8.1](https://developer.nvidia.com/cudnn)**
+
+### 安装 CUDA/CUDNN
+这一步仅针对有 NVIDIA GPU 的设备，不需要则跳转到 [获取源码](#获取源码)
+
+#### 下载 [CUDA 离线安装包](https://developer.nvidia.com/cuda-12-0-0-download-archive)
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/CUDA-download.png)
+
+选择解压目录，解压完成后开始安装，默认安装路径为 
+
+**`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0`**
+- `v12.0` 为你所选的 CUDA 版本
+
+安装完成后 CUDA 目录会被添加到环境变量，如果没有被添加，手动添加到系统 path 变量中
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/CUDA-env-path.png)
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/CUDA-env-path-2.png)
+
+在 `cmd` 中使用 `nvcc -V` 查看 CUDA 版本信息，验证安装
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/nvcc-V.png)
+
+#### 下载 [CUDNN 文件压缩包](https://developer.nvidia.com/cudnn)
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/CUDNN-download.png)
+
+解压后如下
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/cudnn-unzip.png)
+
+将除 `LICENSE` 外的文件全都复制到 CUDA 的安装路径下，如果是默认安装位置，则为
+**`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0`**
+
+#### 验证 CUDA & CUDNN 安装
+打开 `cmd` 进入 CUDA 安装目录的 `extras\demo_suite` 目录
+
+``` cmd
+cd C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0\extras\demo_suite
+```
+
+输入 `bandwidthTest.exe` 进行验证
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/bandwidthTest.png)
+
+输入 `deviceQuery.exe` 进行验证
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/deviceQuery.png)
+
+都输出 `Result = PASS` 则安装完成
+
+### 获取源码
+name | version 
+---------|----------
+ OpenCV | **[v4.7.0](https://github.com/opencv/opencv/releases/tag/4.7.0)**
+ OpenCV-Contrib | **[v4.7.0](https://github.com/opencv/opencv_contrib/releases/tag/4.7.0)**
+
+
+## Linux
