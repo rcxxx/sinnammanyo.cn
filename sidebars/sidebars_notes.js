@@ -42,6 +42,7 @@ const sidebarsNotes = {
       items: [
         'others/村上春树/且听风吟',
         'others/村上春树/挪威的森林',
+        'others/村上春树/遇到百分之百的女孩',
       ],
     },
 
