@@ -96,5 +96,95 @@ name | version
  OpenCV | **[v4.7.0](https://github.com/opencv/opencv/releases/tag/4.7.0)**
  OpenCV-Contrib | **[v4.7.0](https://github.com/opencv/opencv_contrib/releases/tag/4.7.0)**
 
+解压后放在同一目录下，新建 `build` 文件夹
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/get-soure.png)
+
+- `build` 文件夹用来存放编译后的文件，可以任意命名
+
+### 配置 CMake 项目
+
+打开 CMake-GUI 分别填入 `build` 文件夹路径以及 `opencv-4.7.0` 源码路径
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/build-path.png)
+
+然后点击 `Configure` 选择 `Visual Studio` 版本
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/Cmake-Configure.png)
+
+会出现类似如下的红色提示
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/Cmake-Configure-error.png)
+
+原因是 `CMake` 在配置时会需要下载一些依赖，但是由于网络原因，导致依赖无法下载，根据提示，可以看到链接不到的网址为
+
+``` shell
+=======================================================================
+  Couldn't download files from the Internet.
+  Please check the Internet access on this host.
+=======================================================================
+
+CMake Warning at cmake/OpenCVDownload.cmake:248 (message):
+  IPPICV: Download failed: 6;"Couldn't resolve host name"
+
+  For details please refer to the download log file:
+
+  E:/workspace/temp/build/CMakeDownloadLog.txt
+
+Call Stack (most recent call first):
+  3rdparty/ippicv/ippicv.cmake:37 (ocv_download)
+  cmake/OpenCVFindIPP.cmake:259 (download_ippicv)
+  cmake/OpenCVFindLibsPerf.cmake:12 (include)
+  CMakeLists.txt:750 (include)
+```
+
+根据输出信息，找到 `opencv-4.7.0\3rdparty\ippicv\ippicv.cmake` 文件压缩包
+
+修改 `https://raw.githubusercontent.com/opencv/opencv_3rdparty/${IPPICV_COMMIT}/ippicv/` 中的 `raw.githubusercontent.com`
+
+将 url 修改为 `https://raw.fastgit.org/opencv/opencv_3rdparty/${IPPICV_COMMIT}/ippicv/`
+
+:::info
+
+下面两个文件加速CDN可选
+
+> 1. *[Github RAW 加速服务](https://gitmirror.com/raw.html)*
+> 2. *[Fast Git](http://fastgit.org/)*
+
+镜像站 1 中不支持 .(zip|rar|7z|apk|ipa|exe|msi|m3u|m3u8|mp4|mp3) 等文件类型的加速
+
+:::
+
+再次 `Configure` 发现 `ippicv` 下载成功
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/ippicv-download.png)
+
+但是依然出现 `FFMPEG: Download failed: 6;"Couldn't resolve host name"` 的错误提示，按前面的方式修改 url 后继续 `Configure`
+
+错误信息全部清除后将出现
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/Configure-done.png)
+
+### 设置 CMake 构建选项
+**添加完设置后都重新 `Configure`**
+
+添加 `OpenCV-Contrib` 路径
+- `OPENCV_EXTRA_MODULES_PATH` 填入 `opencv_contrib-4.7.0/modules` 路径
+
+同样出现一些文件下载失败的警告，按照之前的方式，修改 url 清除全部警告
+
+- <Highlight color="#FFA500">[可选]</Highlight> 开启 CUDA 支持
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/with-CUDA.png)
+
+
+- <Highlight color="#FFA500">[可选]</Highlight> 编译 CUDA 支持的 Python 包
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/opencv-contirb-cuda/with-Python.png)
+
+如果启用了 anaconda 环境，则需要将对应的 python lib 路径设置为正确的路径
+
+### Visual Studio 执行编译
+
 
 ## Linux
