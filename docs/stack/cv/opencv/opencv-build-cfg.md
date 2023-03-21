@@ -105,27 +105,5 @@ sudo apt install libjasper-dev
 sudo apt-get install libtbb2 libtbb-dev
 ```
 
-- **设置代理**
-
-```
-export http_proxy=http://127.0.0.1:10808
-export https_proxy=http://127.0.0.1:10808
-```
-
-- **`CMake` 选项**
-
-``` bash
-cmake -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr/local \
-    -DOPENCV_GENERATE_PKGCONFIG=YES \
-    -DWITH_QT=ON \
-    -DWITH_OPENGL=ON \
-    -DWITH_TBB=ON \
-    -DBUILD_opencv_python2=OFF \
-    -DBUILD_opencv_python3=OFF \
-    -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.5.0/modules \
-    ../opencv-4.5.0
-```
-
 ## 参考
 - [OpenCV configuration options reference](https://docs.opencv.org/4.5.0/db/d05/tutorial_config_reference.html)

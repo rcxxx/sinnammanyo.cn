@@ -31,10 +31,11 @@ Name=cosbrowser
 Exec=~/cosbrowser-2.8.3-linux/cosbrowser.AppImage
 Terminal=false
 Type=Application
+Categories=Application;Development;
 ```
 - Name 为你想要的应用程序的名字
 - Exex 中填入可执行文件的路径
-- `Terminal=false` 表示不在终端中启动
+- `Terminal=false` 表示不伴随终端启动
 
 之后就能在 `应用程序显示` 中找到你设置的程序
 

@@ -564,6 +564,7 @@ const sidebarsStack = {
             'system/linux/ubuntu/ubuntu-18-04-script-sudo',
             'system/linux/ubuntu/ubuntu-18-04-tweaks',
             'system/linux/ubuntu/ubuntu-application-desktop',
+            'system/linux/ubuntu/ubuntu-20-04-cuda-toolkit',
             // 'system/linux/ubuntu/',
           ],
         },
