@@ -9,7 +9,7 @@ sidebar_label: DNN YOLO-v8-ONNX
 name | version 
 ---------|:----------:
  System | **[Ubuntu 20.04](https://releases.ubuntu.com/20.04/)**
- CMake  | **[3.24](https://cmake.org/)** ≥
+ CMake  | **[3.24](https://cmake.org/)**
  OpenCV | **[4.7.0](https://github.com/opencv/opencv/releases/tag/4.7.0)**
  Python | **[3.8.0](https://www.python.org/downloads/release/python-380/)**
  YOLOv8 | **[ultralytics](https://github.com/ultralytics/ultralytics)**
@@ -289,6 +289,35 @@ int main() {
 
     return 0;
 }
+```
+
+``` cmake title="CMakeLists.txt"
+cmake_minimum_required(VERSION 3.24)
+project(yolov8_onnx_opencv)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+# Add include dir
+include_directories(
+        ${PROJECT_SOURCE_DIR}/modules
+)
+
+add_executable(yolov8_onnx_opencv src/main.cpp)
+
+# Dependence lib
+## Find and add opencv as required
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+link_libraries(${OpenCV_LIBS})
+
+# Add Subdirectories
+add_subdirectory(${PROJECT_SOURCE_DIR}/modules/yolov8)
+
+# Target
+target_link_libraries(yolov8_onnx_opencv
+        ${OpenCV_LIBS}
+        yolov8)
 ```
 
 输出结果如下

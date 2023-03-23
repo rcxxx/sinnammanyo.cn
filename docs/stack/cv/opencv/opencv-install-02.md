@@ -118,12 +118,12 @@ cmake -DCMAKE_BUILD_TYPE=Release \
     -DWITH_GTK=ON \
     -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda \
     -DCUDA_ARCH_PTX="" \
-    -DINSTALL_TESTS=ON \
     -DBUILD_WITH_DEBUG_INFO=ON \
     -DBUILD_opencv_python3=ON \
     -DPYTHON3_NUMPY_INCLUDE_DIRS=$(python3 -c "import numpy; print(numpy.get_include())") \
     -DPYTHON3_PACKAGES_PATH=$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
     -DPYTHON3_LIBRARY=$(python3 -c "from distutils.sysconfig import get_config_var;from os.path import dirname,join ; print(join(dirname(get_config_var('LIBPC')),get_config_var('LDLIBRARY')))") \
+    -DINSTALL_TESTS=ON \
     -DOPENCV_TEST_DATA_PATH=../opencv_extra-4.7.0/testdata \
     -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.7.0/modules \
     ../opencv-4.7.0

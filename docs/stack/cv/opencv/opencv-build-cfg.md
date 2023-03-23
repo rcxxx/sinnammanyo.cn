@@ -4,7 +4,7 @@ title: OpenCV Build Configuration Options
 sidebar_label: Build Config
 ---
 
-名称 | 版本 |
+Name | Version |
 ---------|:--------:|
  opencv | 4.5.0 |
  opencv_contrib | 4.5.0 |

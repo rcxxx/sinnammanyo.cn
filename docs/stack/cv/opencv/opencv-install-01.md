@@ -6,14 +6,14 @@ sidebar_label: Install-CPU
 
 Name | Version |
 ---------|:--------:|
- 系统版本 | Ubuntu20.04LTS |
+ System | Ubuntu 20.04.5 LTS
  OpenCV | 4.7.0 |
 
 ## OpenCV
 
 - [OpenCV官网](https://opencv.org/)
 
-## Ubuntu18.04从源码编译OpenCV
+## Ubuntu20.04从源码编译OpenCV
 
 ### 获取 **`OpenCV`** 源码
 
