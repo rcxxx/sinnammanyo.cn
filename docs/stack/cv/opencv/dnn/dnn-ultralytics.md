@@ -103,8 +103,8 @@ namespace yolov8_onnx {
         ~Net()= default;
 
         std::vector<yolov8_onnx::Detection> detect(cv::Mat &src,
-                                              float _score_threshold = 0.2,
-                                              float _NMS_threshold = 0.4,
+                                              float _score_threshold = 0.45,
+                                              float _NMS_threshold = 0.5,
                                               float _confidence_threshold = 0.4);
         inline std::vector<std::string> classList(){
             return this->class_list_;
@@ -347,7 +347,7 @@ class Model:
         cv2.rectangle(_img, (x, y), (x_plus_w, y_plus_h), color, 2)
         cv2.putText(_img, label, (x - 10, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
-    def det(self, _img ,_score_th=0.25, _NMS_th = 0.45):
+    def det(self, _img ,_score_th=0.45, _NMS_th = 0.5):
         [height, width, _] = _img.shape
         length = max(height, width)
         img = np.zeros((length, length, 3), np.uint8)
