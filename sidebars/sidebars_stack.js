@@ -285,6 +285,13 @@ const sidebarsStack = {
         },
         {
           type: "category",
+          label: "OpenCV threading",
+          collapsed: true,
+          items: [
+              'cv/opencv/threading/opencv-python-threading-video-stream',          ],
+        },
+        {
+          type: "category",
           label: "OpenCV DNN",
           collapsed: true,
           items: [
