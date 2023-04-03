@@ -288,7 +288,9 @@ const sidebarsStack = {
           label: "OpenCV threading",
           collapsed: true,
           items: [
-              'cv/opencv/threading/opencv-python-threading-video-stream',          ],
+              'cv/opencv/threading/opencv-python-threading-video-stream',
+              'cv/opencv/threading/opencv-cpp-threading-video-stream',
+            ],
         },
         {
           type: "category",
