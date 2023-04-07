@@ -439,7 +439,8 @@ const sidebarsStack = {
         'cv/ml-dl/yolo/yolov5-start',
         'cv/ml-dl/yolo/yolov5-train',
         'cv/ml-dl/yolo/yolov5-训练自建数据集',
-        'cv/ml-dl/yolo/yolov5-6.0-train'
+        'cv/ml-dl/yolo/yolov5-6.0-train',
+        'cv/ml-dl/yolo/yolov8-train'
       ],
     },
 

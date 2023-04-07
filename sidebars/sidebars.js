@@ -125,6 +125,7 @@ const sidebars = {
           },
           items: [
             'project/studio/云逗猫/cloud-tease-cat-danmu-hunter',
+            'project/studio/云逗猫/cloud-tease-cat-aliyun-mqtt',
           ],
         },
       ],
