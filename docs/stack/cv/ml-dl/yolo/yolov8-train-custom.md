@@ -42,6 +42,25 @@ sidebar_label: yolov8 train
 
 ---
 
+## yolov8 env install
+
+**如果你需要使用 GPU 训练，则需要安装 GPU 版本的 Pytorch**
+- 如果你需要将训练完的模型导出为 opset=12 的 onnx 模型，建议不要安装 2.0 版本的 Pytorch，推荐使用版本为 [v1.13.1](https://pytorch.org/get-started/previous-versions/#v1131)，选择你需要的 CUDA 版本进行安装
+``` bash
+# CUDA 11.6
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116
+# CUDA 11.7
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
+# CPU only
+pip install torch==1.13.1+cpu torchvision==0.14.1+cpu torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cpu
+```
+
+- 安装 ultralytics
+``` bash
+pip install -r requirements.txt
+pip install ultralytics
+```
+
 ## yolov8 train
 
 数据集准备完成之后，将数据集复制到 `ultralytics` 项目的 `ultralytics/datasets` 目录下，复制后文件结构如下
@@ -76,16 +95,21 @@ yolo detect train data=coco128.yaml model=yolov8n.pt epochs=100 imgsz=640
 yolo detect train data=coco128.yaml model=yolov8n.yaml pretrained=yolov8n.pt epochs=100 imgsz=640
 ```
 
-选择直接从预训练的模型进行训练
+选择从头训练新的模型，使用 yolov8n 的网络结构
 
 ``` bash
-yolo detect train data=custom/data.yaml model=yolov8s.pt epochs=100 imgsz=640 batch=4
+yolo detect train data=custom/data.yaml model=yolov8n.yaml epochs=100 imgsz=640
 ```
-- batch 根据你设备的性能进行调整
 
 **开始训练**，训练过程的日志将保存在 `ultralytics/runs/detect/train` 中
 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/yolov8/yolov8-train-start.png)
+
+- 使用tensorboard 可视化训练过程，在 http://localhost:6006/ 中查看
+
+```bash
+tensorboard --logdir runs/detect/train
+```
 
 **训练完成**，训练结果的全中将保存在 `ultralytics/runs/detect/train/weights` 中，分别为
 - best.pt 验证效果最好的权重文件
@@ -116,6 +140,7 @@ yolo export model=runs/detect/train/weights/best.pt imgsz=640 format=onnx opset=
 - **[使用 CV::DNN 模块读取 ultralytics/YOLO-v8 ONNX 模型进行实时目标检测](https://sinnammanyo.cn/stack/cv/opencv/dnn/opencv-dnn-ultralytics)**
 
 ## 参考
+- **[INSTALLING PREVIOUS VERSIONS OF PYTORCH](https://pytorch.org/get-started/previous-versions/#installing-previous-versions-of-pytorch)**
 - **[ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)**
 - **[YOLOv8 Docs](https://docs.ultralytics.com/)**
 - **[开始使用 - Roboflow](https://help.roboflow.com/cn_CN/get-started/dataset-upload-roboflow-data-types)**
