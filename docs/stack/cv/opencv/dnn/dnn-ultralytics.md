@@ -436,6 +436,46 @@ if __name__ == '__main__':
 </TabItem>
 </Tabs>
 
+## 补充
+
+如果使用自己训练的模型，则要注意输出图像的颜色通道
+
+- [Predict - YOLOv8 Docs](https://docs.ultralytics.com/modes/predict/)
+
+source | model(arg) | type | notes
+---------|----------|----------|----------
+OpenCV | cv2.imread('im.jpg')[:,:,::-1] | np.ndarray | HWC, BGR to RGB
+
+修正程序如下
+
+<Tabs
+defaultValue="cc"
+values={[
+    {label: 'c++', value: 'cc'},
+    {label: 'python', value: 'py'},
+]}>
+<TabItem value="cc">
+
+``` cpp title="main.cpp"
+// YOLO detect
+cv::Mat src_img = cv::imread(img_path);
+cv::Mat rgb_img;
+cv::cvtColor(src_img, rgb_img, cv::COLOR_BGR2RGB);
+std::vector<yolov8_onnx::Detection> results = yolo.detect(rgb_img);
+```
+</TabItem>
+<TabItem value="py">
+
+``` py title="main.py"
+src_img = cv2.imread('bus.jpg')
+rgb_img = src_img[:, :, ::-1]
+# or
+# rgb_img = cv2.cvtColor(src_img, cv2.COLOR_BGR2RGB)
+detections = net.det(src_img)
+```
+</TabItem>
+</Tabs>
+
 ## 参考
 - **[ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)**
 - **[ultralytics/examples/YOLOv8-CPP-Inference](https://github.com/ultralytics/ultralytics/tree/main/examples/YOLOv8-CPP-Inference)**
