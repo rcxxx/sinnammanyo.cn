@@ -578,6 +578,15 @@ const sidebarsStack = {
             // 'system/linux/ubuntu/',
           ],
         },
+        {
+          type: "category",
+          label: "Windows",
+          collapsed: true,
+          items: [
+            'system/win/win11-wsl-ubuntu2204',
+            'system/win/win11-wsl-clash-proxy',
+          ],
+        },
       ],
     },
   ],
