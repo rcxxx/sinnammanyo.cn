@@ -1,6 +1,7 @@
 ---
+date: 2023-06-08
 authors: rcxxx
-hide_reading_time: true
+hide_reading_time: false
 title: ChatGPT 帮我找工作 -- C++篇
 tags: [ChatGPT, C++, 面试]
 ---

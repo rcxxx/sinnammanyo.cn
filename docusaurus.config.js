@@ -47,7 +47,7 @@ const config = {
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
             frontMatter.hide_reading_time
               ? undefined
-              : defaultReadingTime({content}),
+              : defaultReadingTime({content, options: {wordsPerMinute: 300}}),
           remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
           rehypePlugins: [require('rehype-katex')],
           postsPerPage: 'ALL',
