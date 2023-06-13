@@ -2,7 +2,7 @@
 date: 2023-06-08
 authors: rcxxx
 hide_reading_time: false
-title: ChatGPT 帮我找工作 -- C++篇
+title: 『ChatGPT』 帮我找工作 -- C++篇
 tags: [ChatGPT, C++, 面试]
 ---
 
@@ -288,6 +288,8 @@ struct ListNode {
 
 ---
 
+可以说 ChatGPT 给出的问题覆盖到了 C++ 的各种关键知识点，但是每个部分仍有很多知识点，接下来单独针对每个部分再来向 GPT 获取帮助
+- [『ChatGPT』 帮我找工作 -- C++篇 「二」](https://sinnammanyo.cn/blog/2023/06/use-ChatGPT-mock-interviews-2)
 ## 参考
 
 本期参考列表略长···
