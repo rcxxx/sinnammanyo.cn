@@ -370,6 +370,7 @@ const sidebarsStack = {
       collapsed: true,
       items: [
         'ROS/ros2/ros2-install',
+        'ROS/ros2/ros2-install-wsl2',
       ],
     },
     // note
