@@ -113,7 +113,8 @@ const config = {
           {
             to: '/blog', 
             label: 'Blog', 
-            position: 'left'},
+            position: 'left'
+          },
           {
             type: 'dropdown',
             to: '/docs',

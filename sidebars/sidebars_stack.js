@@ -504,7 +504,7 @@ const sidebarsStack = {
       items: [
         {
           type: "category",
-          label: "Jeston-Nano",
+          label: "Jetson-Nano",
           collapsed: true,
           items: [
             'devices/nvidia/jeston-nano/jetson-nano-start',

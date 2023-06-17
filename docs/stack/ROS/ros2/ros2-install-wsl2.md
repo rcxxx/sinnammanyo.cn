@@ -97,6 +97,8 @@ sudo apt install ros-foxy-desktop python3-argcomplete
 
 ### 测试例程
 
+#### talker & listener
+
 - 设置运行环境
 
 ``` bash
@@ -119,6 +121,40 @@ ros2 run demo_nodes_py listener
 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/win11/wsl2-ros2/talker-listener-test.png)
 
+
+#### turtlesim 
+
+打开终端输入
+
+``` bash
+source /opt/ros/foxy/setup.bash
+ros2 run turtlesim turtlesim_node
+```
+
+打开第二个终端输入
+
+``` bash
+source /opt/ros/foxy/setup.bash
+ros2 run turtlesim turtle_teleop_key
+```
+
+启动了一个小海龟仿真器，并且可以通过键盘输入操作它的方向
+
+![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/win11/wsl2-ros2/turtlesim.png)
+
+### 设置 `.bashrc`
+
+每次打开新终端都需要重新激活 ROS 的环境
+- `source /opt/ros/foxy/setup.bash`
+
+可以把这一行命令写入 `.bashrc` 文件中，这样启动终端的时候就会自动加载环境了
+
+``` bash
+echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+
+这样重新打开新的终端，就会自动激活 ROS 环境了
 
 ## 参考
 - **[Installation » Ubuntu (Debian)](http://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html#)**
