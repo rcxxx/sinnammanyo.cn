@@ -11,9 +11,10 @@ import BVideo from "@site/src/components/BVideo";
 
 ### 视频演示
 
-<BVideo src="" bsrc=""/>
+<BVideo src="//player.bilibili.com/player.html?aid=528488504&bvid=BV1eu41147ok&cid=1123471632&page=1" bsrc="https://www.bilibili.com/video/BV1eu41147"/>
 
 ### 项目地址
+- **[rcxxx/Cloud-Tease-Cat](https://github.com/rcxxx/Cloud-Tease-Cat)**
 
 </BrowserWindow>
 
