@@ -121,12 +121,14 @@ const config = {
             label: '📥 Stack',
             position: 'left',
             items: [
-              {label: '🔌 Devices', to:'stack/category/devices'},
-              {label: '💽 System', to:'stack/category/system'},
               {label: '⌨️ Programming', to:'stack/category/C-C_plus_plus'},
-              {label: '👀 CV & Robot', to:'stack/category/OpenCV'},
+              {label: '📦 Tools', to:'stack/category/tools'},
+              {label: '💽 System', to:'stack/category/system'},
+              {label: '👀 CV', to:'stack/category/cv'},
               {label: '🧠 ML & DL', to:'stack/category/ml-dl'},
-              {label: '🔩 Handmade', to:'stack/category/Fusion 360'},
+              {label: '🤖 Robot', to:'stack/category/robot'},
+              {label: '🔌 Devices', to:'stack/category/devices'},
+              {label: '🔩 3D Modeling', to:'stack/category/Fusion 360'},
             ],
           },
           {
@@ -142,7 +144,6 @@ const config = {
             to: 'docs/category/just-paly',
             position: 'right',
             className: 'heafer-life-icon',
-            
           },
           {
             to: 'docs/category/studio',
