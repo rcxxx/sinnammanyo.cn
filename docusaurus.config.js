@@ -95,6 +95,19 @@ const config = {
         'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'projects',
+        path: 'docs/projects',
+        routeBasePath: 'projects',
+        sidebarPath: require.resolve('./sidebars/sidebars_projects.js'),
+        remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
+        rehypePlugins: [require('rehype-katex')],
+        editUrl:
+        'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
+      },
+    ],
   ],
 
   themeConfig:
@@ -141,14 +154,14 @@ const config = {
             ],
           },
           {
-            to: 'docs/category/just-paly',
-            position: 'right',
-            className: 'heafer-life-icon',
+            label: '🚧 Porjects',
+            to: 'projects/category/projects',
+            position: 'left',
           },
           {
-            to: 'docs/category/studio',
+            to: 'docs/category/just-paly',
             position: 'right',
-            className: 'heafer-studio-icon'
+            label: '🍺🍜🀄',
           },
           {
             href: 'https://github.com/rcxxx/sinnammanyo.cn',
