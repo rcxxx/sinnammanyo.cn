@@ -188,7 +188,7 @@ Git 和 GitHub 的搭配使用可以非常有效地提高团队协作的工作�
 推荐学习链接:
 - **[OpenCV官网](https://opencv.org/)**
   - 官网的 **[`Tutorials`](https://docs.opencv.org/master/d9/df8/tutorial_root.html)** 页面有包括安装在内的一系列教程，非常完整
-  - **[如何安装 `OpenCV`](https://sinnammanyo.cn/personal-site/docs/opencv/opencv-install-cpu)**
+  - **[如何安装 `OpenCV`](https://sinnammanyo.cn/stack/cv/opencv/opencv-install-cpu)**
 - **[OpenCV官方 GitHub](https://github.com/opencv/opencv)**
 
 推荐几个很有趣的官方例程:
@@ -224,7 +224,7 @@ Git 和 GitHub 的搭配使用可以非常有效地提高团队协作的工作�
 推荐使用 **[`Tensorflow`](https://www.tensorflow.org/)** 或者 **[`Pytorch`](https://pytorch.org/)** 作为深度学习框架
 
 一些相关的有趣例程:
-- **[yolo and UNO](https://sinnammanyo.cn/personal-site/docs/yolo/yolov5-train)**
+- **[yolo and UNO](https://sinnammanyo.cn/stack/cv/ml-dl/yolo/yolov5-train)**
 
 推荐书籍:
 - 《机器学习》—— 清华大学出版社（西瓜书）

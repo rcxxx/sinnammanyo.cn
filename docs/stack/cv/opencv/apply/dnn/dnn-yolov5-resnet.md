@@ -50,7 +50,7 @@ link_libraries(${TORCH_LIBRARIES})
 
 
 ### OpenCV DNN yolov5
-- [使用 CV::DNN 模块读取 YOLO v5 ONNX 模型进行实时目标检测](https://sinnammanyo.cn/personal-site/docs/computer/cv/opencv/dnn/opencv-dnn-yolov5-6-0)
+- [使用 CV::DNN 模块读取 YOLO v5 ONNX 模型进行实时目标检测](https://sinnammanyo.cn/stack/cv/opencv/apply/dnn/opencv-dnn-yolov5-6-0)
 
 ### ResNet 封装
 
@@ -64,7 +64,7 @@ link_libraries(${TORCH_LIBRARIES})
 - **[leimao/LibTorch-ResNet-CIFAR](https://github.com/leimao/LibTorch-ResNet-CIFAR)**
 - **[PyTorch使用ResNet18提取图像特征并进行相似度计算](https://blog.csdn.net/qq_37299618/article/details/121486682)**
 - **[Pytorch实战2：ResNet-18实现Cifar-10图像分类](https://blog.csdn.net/sunqiande88/article/details/80100891)**
-- **[使用 CV::DNN 模块读取 YOLO v5 ONNX 模型进行实时目标检测](https://sinnammanyo.cn/personal-site/docs/computer/cv/opencv/dnn/opencv-dnn-yolov5-6-0)**
+- **[使用 CV::DNN 模块读取 YOLO v5 ONNX 模型进行实时目标检测](https://sinnammanyo.cn/stack/cv/opencv/apply/dnn/opencv-dnn-yolov5-6-0)**
 - **[libtorch Tensor与opencv Mat相互转换](https://blog.csdn.net/juluwangriyue/article/details/108360320)**
 - **[深度学习中归一化输入为什么要除方差/标准差?](https://www.zhihu.com/question/394376741/answer/2447545447)**
 - **[Deep residual networks pre-trained on ImageNet](https://pytorch.org/hub/pytorch_vision_resnet/)**

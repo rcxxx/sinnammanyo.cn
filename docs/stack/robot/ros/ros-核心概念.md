@@ -44,9 +44,9 @@ ROS所有节点的管理者
 
 - 使用编程语言无关的 `.msg` 文件定义，编译过程中生成对应的代码文件
 
-### [发布者（Publisher）](https://sinnammanyo.cn/personal-site/docs/ros/ros-publisher)
+### [发布者（Publisher）](https://sinnammanyo.cn/stack/robot/ros/ros-publisher)
 
-### [订阅者（Subscriber）](https://sinnammanyo.cn/personal-site/docs/ros/ros-subscriber)
+### [订阅者（Subscriber）](https://sinnammanyo.cn/stack/robot/ros/ros-subscriber)
 
 ## 服务通信
 服务模型（请求/应答）

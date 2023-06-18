@@ -5,7 +5,7 @@ sidebar_label: 定时任务
 ---
 
 之前在使用 `Jetson Nano` 的时候涉及到了定时任务
-- 用某个引脚输出持续 n 秒的高电平 —— **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/personal-site/docs/computer/pc/devices/nvidia/jeston-nano/jetson-nano-gpio)**
+- 用某个引脚输出持续 n 秒的高电平 —— **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/stack/devices/jetson-nano/jetson-nano-gpio)**
 
 实现的时候遇到了一些问题，于是做下记录
 

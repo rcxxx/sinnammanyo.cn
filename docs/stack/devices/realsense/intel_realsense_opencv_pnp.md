@@ -10,7 +10,7 @@ sidebar_label: apriltag Pose Estimation
 
 `apriltag` 检测
 
-- **[D435i use apriltag with OpenCV](https://sinnammanyo.cn/personal-site/docs/computer/cv/realsense/intel-realsense-apriltag)**
+- **[D435i use apriltag with OpenCV](https://sinnammanyo.cn/stack/devices/realsense/intel-realsense-apriltag)**
 
 成功检测 `apriltag` 后，参照 **[#pose-estimation](https://github.com/AprilRobotics/apriltag/wiki/AprilTag-User-Guide#pose-estimation)** 中的方法，可以使用 `apriltag` 提供的 `estimate_tag_pose` 方法进行姿态估计，也可以使用 `OpenCV` 的 `PnP` 求解器，两种方法都需要获得相机的内参
 
@@ -106,7 +106,7 @@ cv::solvePnP(object_point, image_point, camera_matrix, distortion_coeffs, rvec, 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/ubuntu/realsense/realsense-apriltag-pose.png)
 
 ## 参考
-- **[D435i use apriltag with OpenCV](https://sinnammanyo.cn/personal-site/docs/computer/cv/realsense/intel-realsense-apriltag)**
+- **[D435i use apriltag with OpenCV](https://sinnammanyo.cn/stack/devices/realsense/intel-realsense-apriltag)**
 - **[相机内参和外参](https://zhuanlan.zhihu.com/p/144307108)**
 - **[#intrinsic-camera-parameters](https://github.com/IntelRealSense/librealsense/wiki/Projection-in-RealSense-SDK-2.0#intrinsic-camera-parameters)**
 - **[How to get the fx,fy,cx,cy of the D435 #2930](https://github.com/IntelRealSense/librealsense/issues/2930)**

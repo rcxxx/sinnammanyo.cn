@@ -28,7 +28,7 @@ import BVideo from "@site/src/components/BVideo";
 - `MegEngine` 也需要安装 `aarch64` 版本的 `.whl`
 
 详细的安装过程放在这里👇
-- **[Jetson Nano Install MegFlow && MegEngine](https://sinnammanyo.cn/personal-site/docs/computer/pc/devices/nvidia/jeston-nano/jetson-nano-megflow-megengine)**
+- **[Jetson Nano Install MegFlow && MegEngine](https://sinnammanyo.cn/stack/devices/jetson-nano/jetson-nano-megflow-megengine)**
 
 ## 猫粮机的功能控制
 
@@ -85,7 +85,7 @@ def isFeeding(self, name, time, feeding_times):
 拆解猫粮机发现猫粮机的控制是通过电平脉冲来实现的，简单测试之后发现持续 `1s` 的高电平是 5g 左右的猫粮，`2s` 的脉冲则有 10g 左右，但是随着脉冲时间的延长，出粮的量并不是线性变化的，于是遵循少量多次的原则来控制猫粮机的出粮
 
 `Jetson Nano` 上的引脚就可以作为脉冲的控制，只需要编写相应的代码就可以实现
-- **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/personal-site/docs/computer/pc/devices/nvidia/jeston-nano/jetson-nano-gpio)**
+- **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/stack/devices/jetson-nano/jetson-nano-gpio)**
 
 新建功能插件
 - **[`nano_gpio.py`](https://github.com/rcxxx/MegFlow/blob/master/flow-python/examples/cat_feeders/nano_gpio.py)**
@@ -117,5 +117,5 @@ t.start()
 ## 参考
 - **[MegEngine/MegFlow](https://github.com/MegEngine/MegFlow)**
 - **[MegFlow’s documentation!](https://megflow.readthedocs.io/zh_CN/latest/)**
-- **[Jetson Nano Install MegFlow && MegEngine](https://sinnammanyo.cn/personal-site/docs/computer/pc/devices/nvidia/jeston-nano/jetson-nano-megflow-megengine)**
-- **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/personal-site/docs/computer/pc/devices/nvidia/jeston-nano/jetson-nano-gpio)**
+- **[Jetson Nano Install MegFlow && MegEngine](https://sinnammanyo.cn/stack/devices/jetson-nano/jetson-nano-megflow-megengine)**
+- **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/stack/devices/jetson-nano/jetson-nano-gpio)**

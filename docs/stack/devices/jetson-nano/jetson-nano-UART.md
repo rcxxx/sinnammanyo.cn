@@ -64,6 +64,6 @@ reboot
 
 ## 参考
 - **[Read & write permission ttyTHS1](https://forums.developer.nvidia.com/t/read-write-permission-ttyths1/81623)**
-- **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/personal-site/docs/computer/pc/devices/nvidia/jeston-nano/jetson-nano-gpio)**
+- **[Nvidia Jetson Nano GPIO](https://sinnammanyo.cn/stack/devices/jetson-nano/jetson-nano-gpio)**
 - **[ubuntu14.04 放开串口权限](https://www.cnblogs.com/lvchaoshun/p/5911903.html)**
-- **[Python 串口库 pyserial](https://sinnammanyo.cn/personal-site/docs/computer/programming/py/python-serial)**
+- **[Python 串口库 pyserial](https://sinnammanyo.cn/stack/programming/py/python-serial)**

@@ -18,7 +18,7 @@ sidebar_label: ReplayKit
 新建一个 `View` 分组
 
 在 `View` 分组中新建 `MyWebView` 文件并直接从 `Show-Web-Page` 中复制 `myWebView` 用来创建网页视图
-- [传送门](https://sinnammanyo.cn/personal-site/docs/ios/swiftUI/swiftUI-show-web-pages)
+- [传送门](https://sinnammanyo.cn/stack/programming/ios/swiftUI/swiftUI-show-web-pages)
 
 #### 定义录屏功能
 

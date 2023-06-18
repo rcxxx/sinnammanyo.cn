@@ -8,7 +8,7 @@ sidebar_label: ROS & VSCode
 
 如果没有可以参考下面两个链接
 - [安装 VSCode](https://sinnammanyo.cn/VSCode-config/)
-- [安装 ROS-melodic](https://sinnammanyo.cn/personal-site/docs/ros/ros-install)
+- [安装 ROS-melodic](https://sinnammanyo.cn/stack/robot/ros/ros-install)
 
 ## 安装 ROS 插件
 

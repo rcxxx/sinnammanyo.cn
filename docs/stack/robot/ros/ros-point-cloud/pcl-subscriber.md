@@ -138,4 +138,4 @@ rosrun pcl_test pcl_topic
 - [ROS系统学习11---点云数据的发送和接收](https://www.guyuehome.com/25024)
 - [ROS与PCL中点云数据之间的转换](https://cloud.tencent.com/developer/article/1692529)
 - [如何在ROS中使用PCL—数据格式（1）](https://cloud.tencent.com/developer/article/1477011)
-- [在 rviz 中可视化 rosbag 数据](https://sinnammanyo.cn/personal-site/docs/ros/ros-point-cloud/ros-rosbag-play-rviz)
+- [在 rviz 中可视化 rosbag 数据](https://sinnammanyo.cn/stack/robot/ros/ros-point-cloud/ros-rosbag-play-rviz)

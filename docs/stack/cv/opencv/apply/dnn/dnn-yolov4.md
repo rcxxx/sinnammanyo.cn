@@ -9,11 +9,11 @@ sidebar_label: DNN YOLO-v4
 使用 DNN 模块需要编译 `opencv_contrib` 
 
 可以参考
-- [Install（仅CPU）](https://sinnammanyo.cn/personal-site/docs/opencv/opencv-install-cpu)
+- [Install（仅CPU）](https://sinnammanyo.cn/stack/cv/opencv/install/opencv-install-cpu)
 
 
 如果需要开启 GPU 加速，可以参考
-- [Install（GPU）](https://sinnammanyo.cn/personal-site/docs/opencv/opencv-install-gpu)
+- [Install（GPU）](https://sinnammanyo.cn/stack/cv/opencv/install/opencv-install-gpu)
 
 `cmake` 参数应添加下面这些
 

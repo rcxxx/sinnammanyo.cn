@@ -154,7 +154,7 @@ const config = {
             ],
           },
           {
-            label: '🚧 Porjects',
+            label: '🧪 Porjects',
             to: 'projects/category/projects',
             position: 'left',
           },

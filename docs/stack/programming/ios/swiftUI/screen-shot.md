@@ -15,7 +15,7 @@ sidebar_label: Screen Shot
 - 先在 `XCoed` 新建一个工程，取名 `ScreenShot-Demo`
 
 要实现截图功能，首先得显示图像，方便起见，直接使用 `Show-Web-Page` 工程的代码
-- [传送门](https://sinnammanyo.cn/personal-site/docs/ios/swiftUI/swiftUI-show-web-pages)
+- [传送门](https://sinnammanyo.cn/stack/programming/ios/swiftUI/swiftUI-show-web-pages)
 
 显示内容部分解决
 

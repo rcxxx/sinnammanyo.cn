@@ -5,7 +5,7 @@ sidebar_label: yolov5 训练开源数据集
 ---
 
 ## yolov5环境配置
-- **[可以参考这里](https://sinnammanyo.cn/personal-site/docs/yolo/yolov5-start)**
+- **[可以参考这里](https://sinnammanyo.cn/stack/cv/ml-dl/yolo/yolov5-start)**
 
 ## 下载开源数据集
 

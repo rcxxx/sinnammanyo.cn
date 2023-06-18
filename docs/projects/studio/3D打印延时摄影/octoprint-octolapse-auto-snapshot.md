@@ -19,10 +19,10 @@ import BVideo from "@site/src/components/BVideo";
 
 实现延时摄影之前，需要先完成两件事
 1. 给你的树莓派安装上 **`Octoprint`**
-   - [如何安装👉](https://sinnammanyo.cn/personal-site/docs/project/3D%E6%89%93%E5%8D%B0%E5%BB%B6%E6%97%B6%E6%91%84%E5%BD%B1/raspberry-pi-octoprint)
+   - [如何安装👉](https://sinnammanyo.cn/projects/studio/3D%E6%89%93%E5%8D%B0%E5%BB%B6%E6%97%B6%E6%91%84%E5%BD%B1/raspberry-pi-octoprint)
 2. 给你的 **`Octoprint`** 安装 **[`Octolapse`](https://plugins.octoprint.org/plugins/octolapse/)** 插件
 2. 在树莓派中安装 **`gphoto2`**
-   - [如何安装👉](https://sinnammanyo.cn/personal-site/docs/project/3D%E6%89%93%E5%8D%B0%E5%BB%B6%E6%97%B6%E6%91%84%E5%BD%B1/gphoto2-get-capture)，树莓派中运行的 **`Octoprint`** 也是 `linxu` 系统，所以是通用的
+   - [如何安装👉](https://sinnammanyo.cn/projects/studio/3D%E6%89%93%E5%8D%B0%E5%BB%B6%E6%97%B6%E6%91%84%E5%BD%B1/gphoto2-get-capture)，树莓派中运行的 **`Octoprint`** 也是 `linxu` 系统，所以是通用的
 3. 一台有外接电源的单反，因为我们这里使用单反来完成延时摄影，如果你使用网络摄像头的话也可以参考 **[Octolapse/wiki](https://github.com/FormerLurker/Octolapse/wiki)** 进行配置
 
 ### 编写脚本
