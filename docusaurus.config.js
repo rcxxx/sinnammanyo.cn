@@ -19,7 +19,7 @@ const config = {
   organizationName: 'rcxxx', // Usually your GitHub org/user name.
   projectName: 'rcxxx.github.io', // Usually your repo name.
   deploymentBranch: 'master',
-  // Even if you don't use internalization, you can use this field to set useful
+  // Even if you don't use internalization, you can use this field to set useful 
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
@@ -145,6 +145,11 @@ const config = {
             ],
           },
           {
+            label: '🧪 Porjects',
+            to: 'projects/category/projects',
+            position: 'left',
+          },
+          {
             type: 'dropdown',
             label: '✒️ Notes',
             position: 'left',
@@ -152,11 +157,6 @@ const config = {
               {label: '📚 读书笔记', to:'notes/'},
             //   {label: '✏️ 随笔', to:'ReadingNote/'},
             ],
-          },
-          {
-            label: '🧪 Porjects',
-            to: 'projects/category/projects',
-            position: 'left',
           },
           {
             to: 'docs/category/just-paly',

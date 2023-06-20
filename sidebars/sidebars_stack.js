@@ -258,6 +258,30 @@ const sidebarsStack = {
             'tools/vscode/about-vscode'
           ],
         },
+        // {
+        //   type: "category",
+        //   label: "PyCharm",
+        //   collapsed: true,
+        //   items: [
+
+        //   ],
+        // },
+        // {
+        //   type: "category",
+        //   label: "CLion",
+        //   collapsed: true,
+        //   items: [
+
+        //   ],
+        // },
+        // {
+        //   type: "category",
+        //   label: "Edges",
+        //   collapsed: true,
+        //   items: [
+
+        //   ],
+        // },
       ],
     },
   ],
@@ -304,6 +328,8 @@ const sidebarsStack = {
                 'cv/opencv/apply/tutorials/opencv-equalizeHist',
                 'cv/opencv/apply/tutorials/opencv-solvePnP-pose-computation',
                 'cv/opencv/apply/demo/opencv-lane-detect',
+                'cv/opencv/apply/opencv-nginx-rtmp-pull-stream',
+
                 {
                   type: "category",
                   label: "OpenCV threading",

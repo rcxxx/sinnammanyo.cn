@@ -1,29 +1,13 @@
 ---
-date: 2023-02-27
-authors: rcxxx
-hide_reading_time: true
+id: opencv-nginx-rtmp-pull-stream
 title: OpenCV Nginx 实现局域网视频推流/拉流
-tags: [OpenCV, Nginx, rtmp]
+sidebar_label: rtmp 推拉流
 ---
 
-export const Highlight = ({children, color}) => (
-  <span
-    style={{
-      backgroundColor: color,
-      borderRadius: '2px',
-      color: '#fff',
-      padding: '0.2rem',
-      borderRadius: '5px'
-    }}>
-    {children}
-  </span>
-);
-
-### [<Highlight color="#25c2a0">Nginx+RTMP 视频服务器</Highlight>](https://github.com/FelisCatus/SwitchyOmega)
+### Nginx+RTMP 视频服务器
 
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/blog/nginx-rtmp/nginx-status.png)
 
-<!--truncate-->
 
 #### 安装 `Nginx`
 
@@ -183,4 +167,4 @@ cv2.destroyAllWindows()
 
 
 ## 参考
-[ubuntu20.04搭建Nginx+rtmp服务器](https://www.cnblogs.com/zhuzi1/p/17056030.html)
+- **[ubuntu20.04搭建Nginx+rtmp服务器](https://www.cnblogs.com/zhuzi1/p/17056030.html)**
