@@ -1,5 +1,29 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebarsStack = {
+  '💻 cs': [
+    {
+      type: 'category',
+      label: '💻 CS',
+      link: {
+        type: 'generated-index',
+        slug: '/category/cs',
+      },
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: '计算机网络',
+          link: {
+            type: 'generated-index',
+            slug: '/category/computer-network',
+          },
+          items: [
+            'cs/network/computer-network-architecture',
+          ],
+        },
+      ],
+    },
+  ],
   '⌨️ programming': [
     {
       type: 'category',

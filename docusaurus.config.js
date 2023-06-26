@@ -134,6 +134,7 @@ const config = {
             label: '📥 Stack',
             position: 'left',
             items: [
+              {label: '💻 CS', to:'stack/category/cs'},
               {label: '⌨️ Programming', to:'stack/category/C-C_plus_plus'},
               {label: '📦 Tools', to:'stack/category/tools'},
               {label: '💽 System', to:'stack/category/system'},

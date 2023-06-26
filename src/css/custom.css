@@ -35,26 +35,6 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-.heafer-studio-icon:before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  display: flex;
-  background: url("../../static/img/icons/navbar_icons/studio.svg")
-    no-repeat;
-}
-
-.heafer-life-icon:before {
-  content: '';
-  width: 24px;
-  height: 24px;
-  display: flex;
-  background: url("../../static/img/icons/navbar_icons/eat.svg")
-    no-repeat;
-}
-
-.heafer-life-icon:hover,
-.heafer-studio-icon:hover,
 .header-github-link:hover {
   opacity: 0.65;
 }
