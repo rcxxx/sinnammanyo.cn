@@ -600,6 +600,7 @@ const sidebarsStack = {
           items: [
             'system/win/win11-wsl-ubuntu2204',
             'system/win/win11-wsl-clash-proxy',
+            'system/win/win11-wsl-usb',
           ],
         },
       ],
