@@ -12,7 +12,7 @@ const sidebarsProjects = {
       items: [
         {
           type: "category",
-          label: "3D打印延时摄影",
+          label: "🕗 3D打印延时摄影",
           collapsed: true,
           link: {
             type: 'doc',
@@ -26,7 +26,7 @@ const sidebarsProjects = {
         },
         {
           type: "category",
-          label: "猫粮机",
+          label: "😻 猫粮机",
           collapsed: true,
           link: {
             type: 'doc',
@@ -39,7 +39,7 @@ const sidebarsProjects = {
         },
         {
           type: "category",
-          label: "垃圾桶",
+          label: "🗑️ 垃圾桶",
           collapsed: true,
           link: {
             type: 'doc',
@@ -51,7 +51,7 @@ const sidebarsProjects = {
         },
         {
           type: "category",
-          label: "云逗猫",
+          label: "🧶 云逗猫",
           collapsed: true,
           link: {
             type: 'doc',

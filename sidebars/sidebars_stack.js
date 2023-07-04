@@ -310,7 +310,7 @@ const sidebarsStack = {
     },
   ],
 
-  '👀 CV': [
+  '👀 CV && 🧠 ML & DL': [
     {
       type: 'category',
       label: '👀 CV',
@@ -320,10 +320,24 @@ const sidebarsStack = {
       },
       collapsed: true,
       items: [
+        // common
+        {
+          type: 'category',
+          label: 'Common',
+          link: {
+            type: 'generated-index',
+            slug: '/category/CV-Common',
+          },
+          collapsed: true,
+          items: [
+            'cv/common/cv-common-iou',
+            'cv/common/cv-common-nms',
+          ],
+        },
         // OpenCV
         {
           type: 'category',
-          label: 'OpenCV',
+          label: '🥽 OpenCV',
           link: {
             type: 'generated-index',
             slug: '/category/OpenCV',
@@ -384,11 +398,28 @@ const sidebarsStack = {
               ],
             },
           ],
-        },    
+        },
+        // YOLO
+        {
+          type: 'category',
+          label: '😉 YOLO',
+          link: {
+            type: 'generated-index',
+            slug: '/category/YOLO',
+          },
+          collapsed: true,
+          items: [
+            'cv/yolo/yolov5-start',
+            'cv/yolo/yolov5-train',
+            'cv/yolo/yolov5-训练自建数据集',
+            'cv/yolo/yolov5-6.0-train',
+            'cv/yolo/yolov8-train'
+          ],
+        }, 
         // Point Cloud
         {
           type: 'category',
-          label: 'Point Cloud',
+          label: '🌪 Point Cloud',
           link: {
             type: 'generated-index',
             slug: '/category/Point-Cloud',
@@ -417,10 +448,7 @@ const sidebarsStack = {
       ],
     },
 
-  ],
-
-  '🧠 ML & DL': [
-    // note
+    // ML & DL
     {
       type: 'category',
       label: '🧠 ML & DL',
@@ -444,7 +472,7 @@ const sidebarsStack = {
         // PyTorch
         {
           type: 'category',
-          label: 'PyTorch',
+          label: '🔥 PyTorch',
           link: {
             type: 'generated-index',
             slug: '/category/PyTorch',
@@ -471,23 +499,6 @@ const sidebarsStack = {
             // },
           ],
           
-        },
-        // YOLO
-        {
-          type: 'category',
-          label: 'YOLO',
-          link: {
-            type: 'generated-index',
-            slug: '/category/YOLO',
-          },
-          collapsed: true,
-          items: [
-            'cv/ml-dl/yolo/yolov5-start',
-            'cv/ml-dl/yolo/yolov5-train',
-            'cv/ml-dl/yolo/yolov5-训练自建数据集',
-            'cv/ml-dl/yolo/yolov5-6.0-train',
-            'cv/ml-dl/yolo/yolov8-train'
-          ],
         },
       ],
     },
