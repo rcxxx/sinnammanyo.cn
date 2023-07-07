@@ -320,20 +320,34 @@ const sidebarsStack = {
       },
       collapsed: true,
       items: [
-        // common
+        // Object Detection
         {
           type: 'category',
-          label: 'Common',
+          label: '🎯 Object Detection',
           link: {
             type: 'generated-index',
-            slug: '/category/CV-Common',
+            slug: '/category/CV-object-detection',
           },
           collapsed: true,
           items: [
-            'cv/common/cv-common-iou',
-            'cv/common/cv-common-nms',
+            'cv/object-detection/cv-object-detection-evaluation',
+            'cv/object-detection/cv-object-detection-iou',
+            'cv/object-detection/cv-object-detection-nms',
+            
           ],
         },
+        // // Segmentation
+        // {
+        //   type: 'category',
+        //   label: '✂ Segmentation',
+        //   link: {
+        //     type: 'generated-index',
+        //     slug: '/category/CV-segmentation',
+        //   },
+        //   collapsed: true,
+        //   items: [            
+        //   ],
+        // },
         // OpenCV
         {
           type: 'category',

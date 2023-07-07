@@ -36,7 +36,7 @@ const config = {
         path: 'docs/docs',
           sidebarPath: require.resolve('./sidebars/sidebars.js'),
           remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
-          rehypePlugins: [require('rehype-katex')],
+          rehypePlugins: [require('rehype-katex'), { strict: false }],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -49,7 +49,7 @@ const config = {
               ? undefined
               : defaultReadingTime({content}),
           remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
-          rehypePlugins: [require('rehype-katex')],
+          rehypePlugins: [require('rehype-katex'), { strict: false }],
           postsPerPage: 'ALL',
           blogSidebarCount: 'ALL',
           blogSidebarTitle: '🔖所有文章',
@@ -90,7 +90,7 @@ const config = {
         routeBasePath: 'stack',
         sidebarPath: require.resolve('./sidebars/sidebars_stack.js'),
         remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
-        rehypePlugins: [require('rehype-katex')],
+        rehypePlugins: [require('rehype-katex'), { strict: false }],
         editUrl:
         'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
       },
@@ -103,7 +103,7 @@ const config = {
         routeBasePath: 'projects',
         sidebarPath: require.resolve('./sidebars/sidebars_projects.js'),
         remarkPlugins: [[require('remark-math'),{ strict: false }], require('mdx-mermaid')],
-        rehypePlugins: [require('rehype-katex')],
+        rehypePlugins: [require('rehype-katex'), { strict: false }],
         editUrl:
         'https://github.com/rcxxx/sinnammanyo.cn/tree/master',
       },

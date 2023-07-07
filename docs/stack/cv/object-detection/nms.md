@@ -1,5 +1,5 @@
 ---
-id: cv-common-nms
+id: cv-object-detection-nms
 title: ''
 sidebar_label: NMS
 ---
@@ -8,8 +8,17 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## NMS 非极大值抑制
+- NMS(Non-Maximum Suppression)
 
-- 代码实现
+目标检测中常用的一种后处理技术，用于消除多余的重叠检测框，保留最有可能的目标框
+
+**处理步骤**
+1. 将所有检测框按置信度排序
+2. 从得分最高的检测框开始，遍历其余检测框
+3. 计算当前检测框与任意一个被保留的检测框的IOU，若IOU大于阈值则删除当前框，否则保留
+4. 重复 2~3 直至所有检测框都处理完成
+
+## 代码实现
 
 <Tabs
 defaultValue="cpp"
@@ -113,6 +122,8 @@ void nms(std::vector<Box>& boxes, float th) {
 
 </TabItem>
 </Tabs>
+
+NMS的阈值通常是在0.3到0.7之间选择，可以根据具体应用场景进行调整。NMS可以有效地消除多余的检测框，提高目标检测的准确率和效率
 
 ## 参考
 

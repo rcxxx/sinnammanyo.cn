@@ -1,5 +1,5 @@
 ---
-id: cv-common-iou
+id: cv-object-detection-iou
 title: ''
 sidebar_label: IOU
 ---
@@ -9,7 +9,13 @@ import TabItem from '@theme/TabItem';
 
 ## IOU 重叠度/交并比
 
-- 代码实现
+IOU(Intersection over Union) 用于评估目标检测算法中预测框与真实框之间的匹配程度的度量方法，通过计算两框之间交集和并集的比值来确定他们的重叠程度
+
+$$
+IOU(B, G) = \frac{Area(B \cap G)}{Area(B \cup G)}
+$$
+
+## 代码实现
 
 <Tabs
 defaultValue="py"
@@ -109,7 +115,9 @@ float iou(const float* box_1, const float* box_2) {
 </TabItem>
 </Tabs>
 
+在目标检测中，可以使用IOU来评估预测框和真实框之间的匹配程度。通常情况下，如果一个预测框与某个真实框的IOU大于一个预先定义的阈值（如0.5或0.7），则认为该预测框与真实框匹配成功，否则认为匹配失败
 
+在训练目标检测模型时，可以将IOU作为损失函数的一部分，通过最小化预测框和真实框之间的IOU来优化模型。同时，在测试阶段，可以使用IOU来评估模型的性能，如计算平均精度（Average Precision，AP）等指标，以评估模型在不同IOU阈值下的表现
 
 ## 参考
 - **[amusi/Deep-Learning-Interview-Book/blob/master/docs/计算机视觉.md#iou](https://github.com/amusi/Deep-Learning-Interview-Book/blob/master/docs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89.md#iou)**
