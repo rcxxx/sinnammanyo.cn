@@ -174,6 +174,35 @@ const sidebarsStack = {
             },
           ],
         },
+        
+        // Algorithm
+        {
+          type: 'category',
+          label: 'Algorithm',
+          link: {
+            type: 'generated-index',
+            slug: '/category/algorithm',
+          },
+          items:[
+            {
+              type: "category",
+              label: "Greedy",
+              collapsed: true,
+              items: [
+                'programming/algorithm/greedy/algorithm-376-wiggle-subsequence',
+              ],
+            },
+            {
+              type: "category",
+              label: "DP",
+              collapsed: true,
+              items: [
+                'programming/algorithm/greedy/algorithm-376-wiggle-subsequence',
+              ],
+            },
+          ],
+        },
+
         // Design Pattern
         {
           type: 'category',
@@ -195,6 +224,7 @@ const sidebarsStack = {
             // },
           ],
         },
+
         // front-end
         {
           type: 'category',
