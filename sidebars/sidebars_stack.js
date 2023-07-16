@@ -190,6 +190,8 @@ const sidebarsStack = {
               collapsed: true,
               items: [
                 'programming/algorithm/greedy/algorithm-376-wiggle-subsequence',
+                'programming/algorithm/dp/algorithm-53-max-sub-array',
+                'programming/algorithm/dp/algorithm-122-best-time-to-buy-and-sell-stock-ii',
               ],
             },
             {
@@ -198,7 +200,8 @@ const sidebarsStack = {
               collapsed: true,
               items: [
                 'programming/algorithm/greedy/algorithm-376-wiggle-subsequence',
-                'programming/algorithm/greedy/algorithm-122-best-time-to-buy-and-sell-stock-ii',
+                'programming/algorithm/dp/algorithm-122-best-time-to-buy-and-sell-stock-ii',
+                'programming/algorithm/dp/algorithm-53-max-sub-array',
               ],
             },
           ],
