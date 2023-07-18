@@ -136,40 +136,51 @@ const sidebarsStack = {
           },
           collapsed: true,
           items: [
+            // {
+            //   type: "category",
+            //   label: "大话数据结构笔记",
+            //   collapsed: true,
+            //   items: [
+            //     'programming/data-structures/大话数据结构/data-structures-introduction',
+            //     {
+            //       type: "category",
+            //       label: "第二章 算法",
+            //       collapsed: true,
+            //       items: [
+            //         'programming/data-structures/大话数据结构/data-structures-algorithm',
+            //         'programming/data-structures/大话数据结构/data-structures-algorithm-2',
+            //       ],
+            //     },
+      
+            //     {
+            //       type: "category",
+            //       label: "第三章 线性表",
+            //       collapsed: true,
+            //       items: [
+            //         'programming/data-structures/大话数据结构/data-structures-list',
+            //       ],
+            //     },
+            //   ],
+            // },
+      
+            // {
+            //   type: "category",
+            //   label: "剑指Offer笔记",
+            //   collapsed: true,
+            //   items: [
+            //     'programming/data-structures/剑指offer/常见数据结构',
+            //     'programming/data-structures/剑指offer/赋值运算符函数',
+            //   ],
+            // },
             {
               type: "category",
-              label: "大话数据结构笔记",
-              collapsed: true,
+              label: "树",
+              link: {
+                type: 'generated-index',
+                slug: '/category/tree',
+              },
               items: [
-                'programming/data-structures/大话数据结构/data-structures-introduction',
-                {
-                  type: "category",
-                  label: "第二章 算法",
-                  collapsed: true,
-                  items: [
-                    'programming/data-structures/大话数据结构/data-structures-algorithm',
-                    'programming/data-structures/大话数据结构/data-structures-algorithm-2',
-                  ],
-                },
-      
-                {
-                  type: "category",
-                  label: "第三章 线性表",
-                  collapsed: true,
-                  items: [
-                    'programming/data-structures/大话数据结构/data-structures-list',
-                  ],
-                },
-              ],
-            },
-      
-            {
-              type: "category",
-              label: "剑指Offer笔记",
-              collapsed: true,
-              items: [
-                'programming/data-structures/剑指offer/常见数据结构',
-                'programming/data-structures/剑指offer/赋值运算符函数',
+                'programming/data-structures/tree/data-structures-tree-traversal',
               ],
             },
           ],
