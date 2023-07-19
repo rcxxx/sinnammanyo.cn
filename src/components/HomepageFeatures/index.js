@@ -5,7 +5,7 @@ import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Notes',
+    title: 'Stack',
     description: (
       <>
         不用心的学习笔记
@@ -13,6 +13,26 @@ const FeatureList = [
     ),
     img: 'img/icons/head/lzumi-06.png',
     link: 'docs/',
+  },
+  {
+    title: 'Projects',
+    description: (
+      <>
+        简单搞搞的好玩项目
+      </>
+    ),
+    img: 'img/icons/head/re-01.png',
+    link: 'projects/category/projects/',
+  },
+  {
+    title: 'Notes',
+    description: (
+      <>
+        没有内涵的文章摘抄
+      </>
+    ),
+    img: 'img/icons/head/C2.png',
+    link: 'notes/',
   },
 ];
 

@@ -174,13 +174,15 @@ const sidebarsStack = {
             // },
             {
               type: "category",
-              label: "树",
+              label: "🌲 Tree",
               link: {
                 type: 'generated-index',
                 slug: '/category/tree',
               },
               items: [
                 'programming/data-structures/tree/data-structures-tree-traversal',
+                'programming/data-structures/tree/data-structures-tree-level-order',
+                'programming/data-structures/tree/data-structures-tree-depth',
               ],
             },
           ],
@@ -197,7 +199,7 @@ const sidebarsStack = {
           items:[
             {
               type: "category",
-              label: "Greedy",
+              label: "🍩 Greedy",
               collapsed: true,
               items: [
                 'programming/algorithm/greedy/algorithm-376-wiggle-subsequence',
@@ -207,7 +209,7 @@ const sidebarsStack = {
             },
             {
               type: "category",
-              label: "DP",
+              label: "🗂 DP",
               collapsed: true,
               items: [
                 'programming/algorithm/greedy/algorithm-376-wiggle-subsequence',
