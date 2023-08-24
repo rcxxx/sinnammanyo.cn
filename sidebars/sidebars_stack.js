@@ -636,6 +636,18 @@ const sidebarsStack = {
             'robot/ros2/ros2-install-wsl2',
           ],
         },
+        {
+          type: 'category',
+          label: 'VSLAM',
+          link: {
+            type: 'generated-index',
+            slug: '/category/VSLAM',
+          },
+          collapsed: true,
+          items: [
+            'robot/vslam/vslam-evo',
+          ],
+        },
       ],
     },
   ],
