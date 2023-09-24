@@ -77,7 +77,7 @@ wsl -l -o
 - 安装 Ubuntu 22.04 LTS
 
 ``` powershell
-wsl --install Ubuntu-22.04
+wsl --install -d Ubuntu-22.04
 ```
 
 安装后启动 Ubuntu 22.04 终端如下
@@ -118,6 +118,13 @@ xeyes &
 ![](https://pictures-1304295136.cos.ap-guangzhou.myqcloud.com/screenshot/win11/wsl2-ubuntu2204/ubuntu2204-xeyes.png)
 
 同理也可以使用诸如 `gedit`、`VLC` 等的 GUI 应用
+
+## 注销 WSL-Ubuntu
+
+```
+wsl --list
+wsl --unregister Ubuntu-22.04
+```
 
 ## 参考
 - **[使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)**
