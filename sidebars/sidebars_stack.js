@@ -174,6 +174,18 @@ const sidebarsStack = {
             // },
             {
               type: "category",
+              label: "🗄️ Stack",
+              link: {
+                type: 'generated-index',
+                slug: '/category/stack',
+              },
+              items: [
+                'programming/data-structures/stack/algorithm-hard-85-maximal-rectangle',
+              ],
+            },
+
+            {
+              type: "category",
               label: "🌲 Tree",
               link: {
                 type: 'generated-index',
