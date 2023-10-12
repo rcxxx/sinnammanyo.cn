@@ -113,7 +113,8 @@ const sidebarsStack = {
               label: "Package",
               collapsed: true,
               items: [
-                'programming/py/python-serial',
+                'programming/py/package/python-serial',
+                'programming/py/package/python-matplotlib',
               ],
             },
             {
