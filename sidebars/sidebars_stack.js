@@ -469,6 +469,7 @@ const sidebarsStack = {
               collapsed: true,
               items: [
                 'cv/opencv/expand/opencv-pixel-connect',
+                'cv/opencv/expand/opencv-with-matplotlib-cpp',
               ],
             },
           ],
