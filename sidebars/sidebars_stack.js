@@ -115,6 +115,8 @@ const sidebarsStack = {
               items: [
                 'programming/py/package/python-serial',
                 'programming/py/package/python-matplotlib',
+                'programming/py/package/python-argparse',
+                'programming/py/package/python-paramiko',
               ],
             },
             {
