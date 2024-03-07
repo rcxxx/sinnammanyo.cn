@@ -75,7 +75,7 @@ struct Box {
     float x_1, y_1, x_2, y_2, score;
 };
 
-float iou(onst Box& box_1, const Box& box_2) {
+float iou(const Box& box_1, const Box& box_2) {
     float tl_x = std::max(box_1.x_1, box_2.x_1);
     float tl_y = std::max(box_1.y_1, box_2.y_1);
     float br_x = std::min(box_1.x_2, box_2.x_2);

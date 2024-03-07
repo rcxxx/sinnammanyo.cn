@@ -661,7 +661,19 @@ const sidebarsStack = {
           },
           collapsed: true,
           items: [
-            'robot/vslam/vslam-evo',
+            'robot/vslam/tools/vslam-evo',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Sport Ctrl',
+          link: {
+            type: 'generated-index',
+            slug: '/category/Sport Ctrl',
+          },
+          collapsed: true,
+          items: [
+            'robot/sport-ctrl/sport-ctrl-smooth-speed-curve',
           ],
         },
       ],
